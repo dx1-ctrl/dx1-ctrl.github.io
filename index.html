@@ -3,163 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hidden Proxy</title>
+    <title>Hidden Proxy Access</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #111;
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            position: relative;
         }
-
-        h1 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-        }
-
-        #urlInput, #popularUrls, #enterButton {
-            display: none; /* Hide by default */
-            margin-top: 20px;
-        }
-
-        #urlContainer {
-            display: flex;
-            align-items: center;
-        }
-
-        #urlInput {
+        .hidden-container {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #f8f8f8;
             padding: 10px;
-            font-size: 1rem;
-            width: 300px;
-            margin-right: 10px;
+            border: 1px solid #ddd;
+            display: none;
+            z-index: 1000;
         }
-
-        #enterButton {
-            padding: 10px 20px;
-            background-color: #333;
-            border: none;
-            color: white;
-            cursor: pointer;
-        }
-
-        #enterButton:hover {
-            background-color: #555;
-        }
-
-        #secretButton {
+        .secret-button {
             position: absolute;
             bottom: 10px;
             right: 10px;
-            width: 50px;
-            height: 50px;
             background-color: transparent;
-            border: 2px solid #fff;
-            border-radius: 50%;
+            border: none;
+            font-size: 16px;
             cursor: pointer;
-            opacity: 0; /* Make it invisible */
+            color: blue;
         }
-
-        #secretButton:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-        }
-
-        #popularUrls ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        #popularUrls li {
-            background-color: #333;
-            padding: 10px;
-            margin: 5px 0;
-            cursor: pointer;
-            border-radius: 5px;
+        #secret-popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            display: none;
+            z-index: 1000;
+            width: 300px;
             text-align: center;
         }
-
-        #popularUrls li:hover {
-            background-color: #555;
-        }
-
-        #closeButton {
-            background-color: #cc0000;
+        .close-button {
+            background-color: #ff4d4d;
             color: white;
             border: none;
-            padding: 10px 20px;
+            padding: 5px;
             cursor: pointer;
         }
-
-        #closeButton:hover {
-            background-color: #ff3333;
+        #urlBox, #goButton {
+            display: none;
+        }
+        .url-links {
+            display: none;
         }
     </style>
 </head>
 <body>
 
-    <div>
-        <h1>Access the Proxy</h1>
-        
-        <!-- Hidden URL input field and popular URLs -->
-        <div id="urlContainer">
-            <input type="text" id="urlInput" placeholder="Enter a URL" style="width: 300px;">
-            <button id="enterButton" onclick="openURLFromInput()">Go</button>
+    <!-- Hidden URL Access -->
+    <div id="secret-popup">
+        <button class="close-button" onclick="closePopup()">Close</button>
+        <h2>Enter Website</h2>
+        <input id="urlBox" type="text" placeholder="Enter URL">
+        <button id="goButton" onclick="goToWebsite()">Go</button>
+        <div class="url-links">
+            <a href="/proxy?url=https://www.nointernetgame.com" target="_self">No Internet Game</a><br>
         </div>
-        
-        <div id="popularUrls">
-            <h2>Popular URLs</h2>
-            <ul>
-                <li onclick="openURL('https://www.nointernetgame.com')">No Internet Game</li>
-            </ul>
-            <!-- Close button to hide the popup -->
-            <button id="closeButton" onclick="closePopup()">Close</button>
-        </div>
-        
-        <!-- Invisible Button to Reveal URL input and Popular URLs -->
-        <button id="secretButton" onclick="revealInputs()">+</button>
     </div>
 
+    <!-- Secret Button -->
+    <button class="secret-button" onclick="openPopup()">🔐 Open URL Box</button>
+
     <script>
-        function revealInputs() {
-            // Reveal the URL input, popular URLs, and Go button when the secret button is clicked
-            document.getElementById("urlInput").style.display = "block";
-            document.getElementById("popularUrls").style.display = "block";
-            document.getElementById("enterButton").style.display = "block"; // Show Go button
+        // Open the secret URL input box
+        function openPopup() {
+            document.getElementById('secret-popup').style.display = 'block';
+            document.getElementById('urlBox').style.display = 'block';
+            document.getElementById('goButton').style.display = 'block';
+            document.querySelector('.url-links').style.display = 'block'; // Show links on secret popup
         }
 
-        function openURL(url) {
-            // Function to open the selected URL in the proxy
-            const proxyUrl = `http://35.245.184.179:8080/proxy?url=${encodeURIComponent(url)}`;
-            window.location.href = proxyUrl;
+        // Close the popup
+        function closePopup() {
+            document.getElementById('secret-popup').style.display = 'none';
         }
 
-        function openURLFromInput() {
-            // Get the value from the URL input field
-            let inputUrl = document.getElementById("urlInput").value;
-
-            // Automatically prepend "https://www." if the input is just a domain (like "nointernetgame.com")
-            if (!inputUrl.startsWith("http://") && !inputUrl.startsWith("https://")) {
-                if (!inputUrl.startsWith("www.")) {
-                    inputUrl = "https://www." + inputUrl;
-                } else {
-                    inputUrl = "https://" + inputUrl;
+        // Automatically fill URL if incomplete
+        document.getElementById('urlBox').addEventListener('input', function(e) {
+            let value = e.target.value;
+            if (!value.startsWith('http')) {
+                if (value.includes('nointernetgame.com')) {
+                    e.target.value = 'https://www.nointernetgame.com';
                 }
             }
+        });
 
-            // Open the URL through the proxy
-            const proxyUrl = `http://35.245.184.179:8080/proxy?url=${encodeURIComponent(inputUrl)}`;
-            window.location.href = proxyUrl;
-        }
-
-        function closePopup() {
-            // Hide the URL input, popular URLs, and Go button when the Close button is clicked
-            document.getElementById("urlInput").style.display = "none";
-            document.getElementById("popularUrls").style.display = "none";
-            document.getElementById("enterButton").style.display = "none"; // Hide Go button
+        // Redirect to the website through the proxy
+        function goToWebsite() {
+            const url = document.getElementById('urlBox').value;
+            if (url) {
+                window.location.href = '/proxy?url=' + encodeURIComponent(url);
+            }
         }
     </script>
 
