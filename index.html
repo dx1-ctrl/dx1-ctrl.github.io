@@ -97,9 +97,19 @@
         #closeButton:hover {
             background-color: #ff3333;
         }
+
+        /* Add styles for a sleek space-themed design */
+        .space-background {
+            background-color: #1a1a2e;
+            background-image: url('https://www.example.com/space-background.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            color: white;
+        }
     </style>
 </head>
-<body>
+<body class="space-background">
 
     <div>
         <h1>Access the Proxy</h1>
@@ -114,6 +124,7 @@
             <h2>Popular URLs</h2>
             <ul>
                 <li onclick="openURL('https://www.nointernetgame.com')">No Internet Game</li>
+                <!-- Add other popular URLs here as you want -->
             </ul>
             <!-- Close button to hide the popup -->
             <button id="closeButton" onclick="closePopup()">Close</button>
@@ -165,4 +176,3 @@
 
 </body>
 </html>
-
