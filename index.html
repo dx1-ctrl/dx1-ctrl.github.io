@@ -1,20 +1,39 @@
-<script>
-    document.getElementById("proxyForm").addEventListener("submit", function(event) {
-        event.preventDefault();
-        const url = document.getElementById("urlInput").value;
-        fetch(`https://35.245.184.179:8080/proxy?url=${encodeURIComponent(url)}`)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.text();
-            })
-            .then(data => {
-                document.getElementById("content").innerHTML = data;
-            })
-            .catch(error => {
-                console.error("Error:", error);
-                document.getElementById("content").innerHTML = "<p>Failed to load content. Please try again.</p>";
-            });
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Proxy Browser</title>
+</head>
+<body>
+  <h1>Welcome to My Proxy Browser!</h1>
+  <input type="text" id="urlInput" placeholder="Enter URL" value="https://www.nointernetgame.com">
+  <button onclick="redirectToProxy()">Go</button>
+  
+  <h2>Popular Sites</h2>
+  <ul>
+    <li><a href="https://www.nointernetgame.com">No Internet Game</a></li>
+    <li><a href="https://poki.com">Poki Games</a></li>
+    <li><a href="https://example.com">Example Site</a></li>
+  </ul>
+
+  <script>
+    // Function to redirect the input URL through the proxy
+    function redirectToProxy() {
+      const urlInput = document.getElementById('urlInput').value;
+      const proxyServer = 'http://35.245.184.179:8080/proxy?url=';
+      window.location.href = proxyServer + encodeURIComponent(urlInput);
+    }
+
+    // Rewrite all links to go through the proxy server
+    document.addEventListener('DOMContentLoaded', () => {
+      const proxyServer = 'http://35.245.184.179:8080/proxy?url=';
+      
+      document.querySelectorAll('a').forEach(link => {
+        const originalUrl = link.href;
+        link.href = proxyServer + encodeURIComponent(originalUrl);
+      });
     });
-</script>
+  </script>
+</body>
+</html>
