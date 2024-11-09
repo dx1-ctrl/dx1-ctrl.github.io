@@ -15,6 +15,7 @@
             height: 100vh;
             margin: 0;
             position: relative;
+            overflow: hidden;
         }
 
         .browser-container {
@@ -23,7 +24,9 @@
             padding: 20px;
             border-radius: 10px;
             width: 90%;
+            height: 90%;
             max-width: 800px;
+            position: relative;
         }
 
         .search-bar {
@@ -32,7 +35,7 @@
             background-color: #333;
             padding: 10px;
             border-radius: 20px;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
         }
 
         .search-bar input[type="text"] {
@@ -53,27 +56,13 @@
             border-radius: 5px;
         }
 
-        .icon-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 10px;
-        }
-
-        .icon {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #444;
-            padding: 15px;
+        .iframe-container {
+            border: none;
+            width: 100%;
+            height: calc(100% - 60px); /* Leave space for search bar */
             border-radius: 10px;
-            cursor: pointer;
-            text-align: center;
-        }
-
-        .icon img {
-            width: 50px;
-            height: 50px;
-            margin-bottom: 5px;
+            background-color: #fff;
+            overflow: hidden;
         }
 
         #secretButton {
@@ -99,27 +88,9 @@
     <div class="browser-container" id="browserContainer">
         <div class="search-bar">
             <input type="text" id="urlInput" placeholder="Search or enter web address">
-            <button onclick="openURLFromInput()">Go</button>
+            <button onclick="loadURL()">Go</button>
         </div>
-        <div class="icon-grid">
-            <div class="icon" onclick="openURL('https://www.google.com')">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" alt="Google">
-                <span>Google</span>
-            </div>
-            <div class="icon" onclick="openURL('https://www.youtube.com')">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="YouTube">
-                <span>YouTube</span>
-            </div>
-            <div class="icon" onclick="openURL('https://www.spotify.com')">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" alt="Spotify">
-                <span>Spotify</span>
-            </div>
-            <div class="icon" onclick="openURL('https://www.discord.com')">
-                <img src="https://upload.wikimedia.org/wikipedia/en/9/98/Discord_logo.svg" alt="Discord">
-                <span>Discord</span>
-            </div>
-            <!-- Add more icons as needed -->
-        </div>
+        <iframe id="browserIframe" class="iframe-container"></iframe>
     </div>
 
     <!-- Invisible button to reveal the browser interface -->
@@ -130,12 +101,7 @@
             document.getElementById("browserContainer").style.display = "block";
         }
 
-        function openURL(url) {
-            const proxyUrl = `http://35.245.184.179:8080/proxy?url=${encodeURIComponent(url)}`;
-            window.location.href = proxyUrl;
-        }
-
-        function openURLFromInput() {
+        function loadURL() {
             let inputUrl = document.getElementById("urlInput").value;
 
             // Automatically add protocol if missing
@@ -143,8 +109,9 @@
                 inputUrl = "https://" + inputUrl;
             }
 
+            // Load the URL into the iframe using the proxy
             const proxyUrl = `http://35.245.184.179:8080/proxy?url=${encodeURIComponent(inputUrl)}`;
-            window.location.href = proxyUrl;
+            document.getElementById("browserIframe").src = proxyUrl;
         }
     </script>
 
