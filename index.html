@@ -16,17 +16,22 @@
     <script>
         document.getElementById("proxyForm").addEventListener("submit", function(event) {
             event.preventDefault();
+            console.log("Form submitted");  // Debug: Check if form submission event is firing
+
             const url = document.getElementById("urlInput").value;
-            
+            console.log("URL entered:", url);  // Debug: Display the URL entered by the user
+
             fetch(`http://35.245.184.179:8080/proxy?url=${encodeURIComponent(url)}`)
                 .then(response => {
                     if (!response.ok) {
                         throw new Error('Network response was not ok');
                     }
+                    console.log("Response received");  // Debug: Check if response is received
                     return response.text();
                 })
                 .then(data => {
                     document.getElementById("content").innerHTML = data;
+                    console.log("Data displayed in content");  // Debug: Confirm data is displayed
                 })
                 .catch(error => {
                     console.error("Error:", error);
