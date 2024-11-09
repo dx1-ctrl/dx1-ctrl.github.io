@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hidden Proxy Browser</title>
+    <title>Hidden Proxy</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -15,54 +15,40 @@
             height: 100vh;
             margin: 0;
             position: relative;
-            overflow: hidden;
         }
 
-        .browser-container {
-            display: none; /* Hidden by default */
-            background-color: #222;
-            padding: 20px;
-            border-radius: 10px;
-            width: 90%;
-            height: 90%;
-            max-width: 800px;
-            position: relative;
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
         }
 
-        .search-bar {
+        #urlInput, #popularUrls, #enterButton {
+            display: none; /* Hide by default */
+            margin-top: 20px;
+        }
+
+        #urlContainer {
             display: flex;
             align-items: center;
+        }
+
+        #urlInput {
+            padding: 10px;
+            font-size: 1rem;
+            width: 300px;
+            margin-right: 10px;
+        }
+
+        #enterButton {
+            padding: 10px 20px;
             background-color: #333;
-            padding: 10px;
-            border-radius: 20px;
-            margin-bottom: 10px;
-        }
-
-        .search-bar input[type="text"] {
-            flex-grow: 1;
-            padding: 10px;
-            background-color: transparent;
             border: none;
             color: white;
-            outline: none;
-        }
-
-        .search-bar button {
-            background-color: #444;
-            border: none;
-            color: white;
-            padding: 10px;
             cursor: pointer;
-            border-radius: 5px;
         }
 
-        .iframe-container {
-            border: none;
-            width: 100%;
-            height: calc(100% - 60px); /* Leave space for search bar */
-            border-radius: 10px;
-            background-color: #fff;
-            overflow: hidden;
+        #enterButton:hover {
+            background-color: #555;
         }
 
         #secretButton {
@@ -75,46 +61,116 @@
             border: 2px solid #fff;
             border-radius: 50%;
             cursor: pointer;
-            opacity: 0; /* Invisible by default */
+            opacity: 0; /* Make it invisible */
         }
 
         #secretButton:hover {
             background-color: rgba(255, 255, 255, 0.1);
         }
-    </style>
-</head>
-<body>
 
-    <div class="browser-container" id="browserContainer">
-        <div class="search-bar">
-            <input type="text" id="urlInput" placeholder="Search or enter web address">
-            <button onclick="loadURL()">Go</button>
-        </div>
-        <iframe id="browserIframe" class="iframe-container"></iframe>
-    </div>
-
-    <!-- Invisible button to reveal the browser interface -->
-    <button id="secretButton" onclick="revealBrowser()">+</button>
-
-    <script>
-        function revealBrowser() {
-            document.getElementById("browserContainer").style.display = "block";
+        #popularUrls ul {
+            list-style-type: none;
+            padding: 0;
         }
 
-        function loadURL() {
+        #popularUrls li {
+            background-color: #333;
+            padding: 10px;
+            margin: 5px 0;
+            cursor: pointer;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        #popularUrls li:hover {
+            background-color: #555;
+        }
+
+        #closeButton {
+            background-color: #cc0000;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        #closeButton:hover {
+            background-color: #ff3333;
+        }
+
+        /* Add styles for a sleek space-themed design */
+        .space-background {
+            background-color: #1a1a2e;
+            background-image: url('https://www.example.com/space-background.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            color: white;
+        }
+    </style>
+</head>
+<body class="space-background">
+
+    <div>
+        <h1>Access the Proxy</h1>
+        
+        <!-- Hidden URL input field and popular URLs -->
+        <div id="urlContainer">
+            <input type="text" id="urlInput" placeholder="Enter a URL" style="width: 300px;">
+            <button id="enterButton" onclick="openURLFromInput()">Go</button>
+        </div>
+        
+        <div id="popularUrls">
+            <h2>Popular URLs</h2>
+            <ul>
+                <li onclick="openURL('https://www.nointernetgame.com')">No Internet Game</li>
+                <!-- Add other popular URLs here as you want -->
+            </ul>
+            <!-- Close button to hide the popup -->
+            <button id="closeButton" onclick="closePopup()">Close</button>
+        </div>
+        
+        <!-- Invisible Button to Reveal URL input and Popular URLs -->
+        <button id="secretButton" onclick="revealInputs()">+</button>
+    </div>
+
+    <script>
+        function revealInputs() {
+            // Reveal the URL input, popular URLs, and Go button when the secret button is clicked
+            document.getElementById("urlInput").style.display = "block";
+            document.getElementById("popularUrls").style.display = "block";
+            document.getElementById("enterButton").style.display = "block"; // Show Go button
+        }
+
+        function openURL(url) {
+            // Function to open the selected URL in the proxy
+            const proxyUrl = `http://35.245.184.179:8080/proxy?url=${encodeURIComponent(url)}`;
+            window.location.href = proxyUrl;
+        }
+
+        function openURLFromInput() {
+            // Get the value from the URL input field
             let inputUrl = document.getElementById("urlInput").value;
 
-            // Automatically add protocol if missing
+            // Automatically prepend "https://www." if the input is just a domain (like "nointernetgame.com")
             if (!inputUrl.startsWith("http://") && !inputUrl.startsWith("https://")) {
-                inputUrl = "https://" + inputUrl;
+                if (!inputUrl.startsWith("www.")) {
+                    inputUrl = "https://www." + inputUrl;
+                } else {
+                    inputUrl = "https://" + inputUrl;
+                }
             }
 
-            // Construct the proxy URL and log for debugging
+            // Open the URL through the proxy
             const proxyUrl = `http://35.245.184.179:8080/proxy?url=${encodeURIComponent(inputUrl)}`;
-            console.log("Loading URL:", proxyUrl);
+            window.location.href = proxyUrl;
+        }
 
-            // Assign the proxy URL to the iframe src
-            document.getElementById("browserIframe").src = proxyUrl;
+        function closePopup() {
+            // Hide the URL input, popular URLs, and Go button when the Close button is clicked
+            document.getElementById("urlInput").style.display = "none";
+            document.getElementById("popularUrls").style.display = "none";
+            document.getElementById("enterButton").style.display = "none"; // Hide Go button
         }
     </script>
 
