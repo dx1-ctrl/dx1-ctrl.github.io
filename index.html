@@ -109,8 +109,11 @@
                 inputUrl = "https://" + inputUrl;
             }
 
-            // Load the URL into the iframe using the proxy
+            // Construct the proxy URL and log for debugging
             const proxyUrl = `http://35.245.184.179:8080/proxy?url=${encodeURIComponent(inputUrl)}`;
+            console.log("Loading URL:", proxyUrl);
+
+            // Assign the proxy URL to the iframe src
             document.getElementById("browserIframe").src = proxyUrl;
         }
     </script>
