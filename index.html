@@ -13,15 +13,16 @@
     </form>
     <div id="content"></div>
 
-    <script>
-        document.getElementById("proxyForm").addEventListener("submit", function(event) {
-            event.preventDefault();
-            const url = document.getElementById("urlInput").value;
-            fetch(`https://35.245.184.179/proxy?url=${encodeURIComponent(url)}`)
-                .then(response => response.text())
-                .then(data => document.getElementById("content").innerHTML = data)
-                .catch(error => console.error("Error:", error));
-        });
-    </script>
+<script>
+    document.getElementById("proxyForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+        const url = document.getElementById("urlInput").value;
+        fetch(`http://35.245.184.179:8080/proxy?url=${encodeURIComponent(url)}`)
+            .then(response => response.text())
+            .then(data => document.getElementById("content").innerHTML = data)
+            .catch(error => console.error("Error:", error));
+    });
+</script>
+
 </body>
 </html>
