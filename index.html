@@ -27,6 +27,30 @@
             margin-top: 20px;
         }
 
+        #urlContainer {
+            display: flex;
+            align-items: center;
+        }
+
+        #urlInput {
+            padding: 10px;
+            font-size: 1rem;
+            width: 300px;
+            margin-right: 10px;
+        }
+
+        #enterButton {
+            padding: 10px 20px;
+            background-color: #333;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+
+        #enterButton:hover {
+            background-color: #555;
+        }
+
         #secretButton {
             position: absolute;
             bottom: 10px;
@@ -69,14 +93,17 @@
         <h1>Access the Proxy</h1>
         
         <!-- Hidden URL input field and popular URLs -->
-        <input type="text" id="urlInput" placeholder="Enter a URL" style="width: 300px;">
+        <div id="urlContainer">
+            <input type="text" id="urlInput" placeholder="Enter a URL" style="width: 300px;">
+            <button id="enterButton" onclick="openURLFromInput()">Go</button>
+        </div>
         
         <div id="popularUrls">
             <h2>Popular URLs</h2>
             <ul>
                 <li onclick="openURL('https://www.nointernetgame.com')">No Internet Game</li>
-                <li onclick="openURL('https://chatgpt.com')">ChatGPT</li>
-                <li onclick="openURL('https://copilot.microsoft.com')">Microsoft Copilot</li>
+                <li onclick="openURL('https://www.crazygames.com')">Crazy Games</li>
+                <li onclick="openURL('https://www.unblockedgames66.com')">Unblocked Games 66</li>
             </ul>
         </div>
         
@@ -94,6 +121,24 @@
         function openURL(url) {
             // Function to open the selected URL in the proxy
             const proxyUrl = `http://35.245.184.179:8080/proxy?url=${encodeURIComponent(url)}`;
+            window.location.href = proxyUrl;
+        }
+
+        function openURLFromInput() {
+            // Get the value from the URL input field
+            let inputUrl = document.getElementById("urlInput").value;
+
+            // Automatically prepend "https://www." if the input is just a domain (like "nointernetgame.com")
+            if (!inputUrl.startsWith("http://") && !inputUrl.startsWith("https://")) {
+                if (!inputUrl.startsWith("www.")) {
+                    inputUrl = "https://www." + inputUrl;
+                } else {
+                    inputUrl = "https://" + inputUrl;
+                }
+            }
+
+            // Open the URL through the proxy
+            const proxyUrl = `http://35.245.184.179:8080/proxy?url=${encodeURIComponent(inputUrl)}`;
             window.location.href = proxyUrl;
         }
     </script>
