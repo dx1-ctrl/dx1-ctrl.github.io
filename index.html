@@ -22,7 +22,7 @@
             margin-bottom: 20px;
         }
 
-        #urlInput, #popularUrls {
+        #urlInput, #popularUrls, #enterButton {
             display: none; /* Hide by default */
             margin-top: 20px;
         }
@@ -85,6 +85,18 @@
         #popularUrls li:hover {
             background-color: #555;
         }
+
+        #closeButton {
+            background-color: #cc0000;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        #closeButton:hover {
+            background-color: #ff3333;
+        }
     </style>
 </head>
 <body>
@@ -102,9 +114,9 @@
             <h2>Popular URLs</h2>
             <ul>
                 <li onclick="openURL('https://www.nointernetgame.com')">No Internet Game</li>
-                <li onclick="openURL('https://www.crazygames.com')">Crazy Games</li>
-                <li onclick="openURL('https://www.unblockedgames66.com')">Unblocked Games 66</li>
             </ul>
+            <!-- Close button to hide the popup -->
+            <button id="closeButton" onclick="closePopup()">Close</button>
         </div>
         
         <!-- Invisible Button to Reveal URL input and Popular URLs -->
@@ -113,9 +125,10 @@
 
     <script>
         function revealInputs() {
-            // Reveal the URL input and popular URLs when the secret button is clicked
+            // Reveal the URL input, popular URLs, and Go button when the secret button is clicked
             document.getElementById("urlInput").style.display = "block";
             document.getElementById("popularUrls").style.display = "block";
+            document.getElementById("enterButton").style.display = "block"; // Show Go button
         }
 
         function openURL(url) {
@@ -140,6 +153,13 @@
             // Open the URL through the proxy
             const proxyUrl = `http://35.245.184.179:8080/proxy?url=${encodeURIComponent(inputUrl)}`;
             window.location.href = proxyUrl;
+        }
+
+        function closePopup() {
+            // Hide the URL input, popular URLs, and Go button when the Close button is clicked
+            document.getElementById("urlInput").style.display = "none";
+            document.getElementById("popularUrls").style.display = "none";
+            document.getElementById("enterButton").style.display = "none"; // Hide Go button
         }
     </script>
 
