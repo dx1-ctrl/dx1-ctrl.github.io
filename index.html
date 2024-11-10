@@ -158,6 +158,33 @@
             display: block;
             font-weight: bold;
         }
+        /* FAQ Section */
+        .faq {
+            max-width: 800px;
+            margin-top: 2em;
+            text-align: left;
+        }
+        .faq h3 {
+            font-size: 1.5em;
+            color: #ffd700;
+            margin-bottom: 1em;
+        }
+        .question {
+            margin: 1em 0;
+            font-weight: bold;
+            color: #ffd700;
+            cursor: pointer;
+        }
+        .answer {
+            display: none;
+            margin: 0.5em 0 1.5em;
+            font-size: 1em;
+            color: #b3b3cc;
+            text-align: left;
+        }
+        .question:hover {
+            color: #ffac33;
+        }
         /* Support/Suggestions Content */
         .support {
             max-width: 800px;
@@ -289,7 +316,7 @@
         <p>Currently, there are no testimonials to display. If you’d like to share your experience with DJV2, please send your testimonial to <a href="mailto:dx1ctrl@gmail.com">dx1ctrl@gmail.com</a> along with your preferred display name.</p>
     </div>
 
-    <div id="faq" class="tab-content">
+    <div id="faq" class="tab-content faq">
         <h2>Frequently Asked Questions</h2>
         <div class="faq">
             <div class="question" onclick="toggleAnswer(this)">Which platforms are compatible with DJV2?</div>
