@@ -52,6 +52,7 @@
             overflow: hidden;
             width: 80%;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            flex-wrap: wrap;
         }
         .tab {
             flex: 1;
@@ -63,6 +64,7 @@
             transition: background 0.3s;
             border-bottom: 3px solid transparent;
             text-align: center;
+            min-width: 150px;
         }
         .tab:hover, .tab.active {
             background-color: #ffd700;
@@ -196,6 +198,30 @@
         footer a:hover {
             color: #ffac33;
         }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header {
+                padding: 3em 1em;
+            }
+            h1 {
+                font-size: 2.5em;
+            }
+            .tab {
+                flex: 1 1 100%;
+                padding: 1em;
+                font-size: 1em;
+            }
+            p, .feature-box p, .download-button {
+                font-size: 1em;
+            }
+            .feature-box {
+                width: 90%;
+            }
+            .support h3 {
+                font-size: 1.2em;
+            }
+        }
     </style>
 </head>
 <body>
@@ -259,15 +285,8 @@
     </div>
 
     <div id="testimonials" class="tab-content testimonials">
-        <h2>User Testimonials</h2>
-        <div class="testimonial">
-            "DJV2 brings my childhood games back to life! The setup was super easy, and it just works." 
-            <span class="testimonial-author">- Alex M.</span>
-        </div>
-        <div class="testimonial">
-            "As a retro gamer, I've tried many emulators, but DJV2 is the most reliable and user-friendly."
-            <span class="testimonial-author">- Jamie L.</span>
-        </div>
+        <h2>Testimonials</h2>
+        <p>Currently, there are no testimonials to display. If you’d like to share your experience with DJV2, please send your testimonial to <a href="mailto:dx1ctrl@gmail.com">dx1ctrl@gmail.com</a> along with your preferred display name.</p>
     </div>
 
     <div id="faq" class="tab-content">
