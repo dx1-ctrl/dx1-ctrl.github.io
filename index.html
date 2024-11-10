@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DJV2 - Ultimate Gaming Experience</title>
+    <title>DJV2 - Ultimate Retro Gaming Experience</title>
     <style>
         /* Basic Reset */
         * {
@@ -143,38 +143,46 @@
 <body>
     <header>
         <h1>DJV2</h1>
-        <p>Discover the all-in-one tool that enhances your gaming and emulation experience. DJV2 is designed to bring seamless integration, high performance, and a modern UI for all your retro and modern gaming needs.</p>
+        <p>Experience a seamless retro gaming setup with DJV2. Designed for DOSBox integration, DJV2 optimizes your experience for classic games, providing a sleek interface and easy setup.</p>
     </header>
 
     <!-- Tabs -->
     <div class="tabs">
-        <div class="tab active" onclick="openTab('purpose')">Purpose</div>
+        <div class="tab active" onclick="openTab('about')">About</div>
+        <div class="tab" onclick="openTab('purpose')">Purpose</div>
         <div class="tab" onclick="openTab('download')">Download</div>
         <div class="tab" onclick="openTab('faq')">FAQ</div>
     </div>
 
     <!-- Tab Content -->
-    <div id="purpose" class="tab-content active">
-        <h2>What is DJV2?</h2>
-        <p>DJV2 is a gaming tool built for those passionate about both retro and modern gaming. With seamless DOSBox integration, customizable settings, and an intuitive user interface, DJV2 brings together the best of both worlds.</p>
-        <p>Whether you’re playing classic games or managing newer titles, DJV2 ensures a smooth, high-performance experience, while frequent updates keep you at the forefront of gaming technology.</p>
+    <div id="about" class="tab-content active">
+        <h2>About DJV2</h2>
+        <p>DJV2 is a tool crafted for retro gaming enthusiasts. It leverages the powerful DOSBox emulator to let you experience classic games on modern systems with a smooth, user-friendly interface. We’re dedicated to making DJV2 the best tool for managing and enjoying vintage gaming collections.</p>
+    </div>
+
+    <div id="purpose" class="tab-content">
+        <h2>Purpose of DJV2</h2>
+        <p>Our mission is to provide a streamlined, enhanced experience for retro gamers. DJV2 helps players bring classic games to life with modern ease, preserving the charm of vintage gaming.</p>
+        <p>From custom configurations to a high-performance UI, DJV2 combines nostalgia with reliability, making classic gaming a breeze.</p>
     </div>
 
     <div id="download" class="tab-content">
         <h2>Download DJV2</h2>
-        <p>Click the button below to download DJV2 & DOSBox Installer. Once downloaded, run the installer to set up DJV2 on your device.</p>
+        <p>Click the button below to download DJV2 & DOSBox Installer. After installation, updates can be applied by running the built-in updater included with the software.</p>
         <a href="https://github.com/dx1-ctrl/dx1-ctrl.github.io/releases/download/V1.0/DJV2-.-DOSBox-Installer.exe" download="DJV2-.-DOSBox-Installer.exe" class="download-button">Download DJV2 & DOSBox Installer</a>
     </div>
 
     <div id="faq" class="tab-content">
         <h2>Frequently Asked Questions</h2>
         <div class="faq">
-            <div class="question" onclick="toggleAnswer(this)">What platforms does DJV2 support?</div>
-            <div class="answer">DJV2 is currently optimized for Windows, with plans for Linux and Mac support in future releases.</div>
-            <div class="question" onclick="toggleAnswer(this)">Is DJV2 compatible with modern games?</div>
-            <div class="answer">Yes! DJV2 supports both retro and modern titles, making it a versatile tool for all types of gamers.</div>
+            <div class="question" onclick="toggleAnswer(this)">What games does DJV2 support?</div>
+            <div class="answer">DJV2 is optimized for DOS-based games using DOSBox. It does not support modern games as it emulates classic DOS systems.</div>
             <div class="question" onclick="toggleAnswer(this)">How do I update DJV2?</div>
-            <div class="answer">Simply download the latest installer from our GitHub page, and it will guide you through the update process without affecting your saved data.</div>
+            <div class="answer">To update DJV2, simply run the built-in updater provided with the installation. This ensures you stay up-to-date without losing any settings or saved data.</div>
+            <div class="question" onclick="toggleAnswer(this)">Is DJV2 compatible with Windows?</div>
+            <div class="answer">Yes, DJV2 is compatible with Windows systems and optimized for a smooth DOSBox integration. Support for additional platforms may be considered in future releases.</div>
+            <div class="question" onclick="toggleAnswer(this)">Is DJV2 open-source?</div>
+            <div class="answer">Currently, DJV2 is not open-source. However, we are open to community suggestions and improvements.</div>
         </div>
     </div>
 
