@@ -18,29 +18,69 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
             min-height: 100vh;
             margin: 0;
+            padding-bottom: 50px;
         }
         header {
             text-align: center;
             padding: 3em;
+            max-width: 800px;
         }
         h1 {
             font-size: 3.5em;
             color: #ffd700;
-            margin-bottom: 0.2em;
+            margin-bottom: 0.5em;
             text-transform: uppercase;
             letter-spacing: 2px;
         }
         p {
-            font-size: 1.3em;
+            font-size: 1.2em;
             max-width: 700px;
             text-align: center;
-            margin-bottom: 2em;
+            margin-bottom: 1.5em;
             line-height: 1.6;
             color: #b3b3cc;
         }
+        /* Tabs */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-top: 2em;
+            background-color: #2a2a3b;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .tab {
+            padding: 1em 2em;
+            cursor: pointer;
+            background-color: #2a2a3b;
+            color: #ffd700;
+            font-weight: bold;
+            transition: background 0.3s;
+            border-bottom: 3px solid transparent;
+        }
+        .tab:hover, .tab.active {
+            background-color: #ffd700;
+            color: #1e1e2f;
+            border-bottom: 3px solid #ffac33;
+        }
+        /* Tab Content */
+        .tab-content {
+            display: none;
+            max-width: 800px;
+            padding: 2em;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            margin-top: -1px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        .tab-content.active {
+            display: block;
+        }
+        /* Download Button */
         .download-button {
             padding: 1em 2.5em;
             background-color: #ffd700;
@@ -51,41 +91,37 @@
             font-weight: bold;
             transition: background 0.3s, transform 0.2s;
             box-shadow: 0px 4px 15px rgba(255, 215, 0, 0.4);
+            margin-top: 1em;
         }
         .download-button:hover {
             background-color: #ffac33;
             transform: translateY(-4px);
         }
-        /* Features Section */
-        .features {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            max-width: 1200px;
-            margin-top: 4em;
-            gap: 1em;
+        /* FAQ Section */
+        .faq {
+            max-width: 800px;
+            margin-top: 2em;
         }
-        .feature {
-            width: 300px;
-            padding: 1.5em;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            background: rgba(255, 255, 255, 0.05);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s;
-            text-align: center;
-        }
-        .feature:hover {
-            transform: translateY(-5px);
-        }
-        .feature h2 {
+        .faq h3 {
+            font-size: 1.5em;
             color: #ffd700;
-            font-size: 1.8em;
-            margin-bottom: 0.5em;
+            margin-bottom: 1em;
         }
-        .feature p {
+        .question {
+            margin: 1em 0;
+            font-weight: bold;
+            color: #ffd700;
+            cursor: pointer;
+        }
+        .answer {
+            display: none;
+            margin: 0.5em 0 1.5em;
             font-size: 1em;
             color: #b3b3cc;
+            text-align: left;
+        }
+        .question:hover {
+            color: #ffac33;
         }
         /* Footer */
         footer {
@@ -107,41 +143,62 @@
 <body>
     <header>
         <h1>DJV2</h1>
-        <p>Your ultimate gaming and emulation experience in one package. Discover an all-in-one tool tailored for true gamers.</p>
-        <a href="https://github.com/dx1-ctrl/dx1-ctrl.github.io/releases/download/V1.0/DJV2-.-DOSBox-Installer.exe" download="DJV2-.-DOSBox-Installer.exe" class="download-button">Download DJV2 & DOSBox Installer</a>
+        <p>Discover the all-in-one tool that enhances your gaming and emulation experience. DJV2 is designed to bring seamless integration, high performance, and a modern UI for all your retro and modern gaming needs.</p>
     </header>
 
-    <!-- Features Section -->
-    <section class="features">
-        <div class="feature">
-            <h2>Seamless Integration</h2>
-            <p>Enjoy an optimized experience that integrates smoothly with DOSBox, providing high compatibility with retro games and modern interfaces.</p>
+    <!-- Tabs -->
+    <div class="tabs">
+        <div class="tab active" onclick="openTab('purpose')">Purpose</div>
+        <div class="tab" onclick="openTab('download')">Download</div>
+        <div class="tab" onclick="openTab('faq')">FAQ</div>
+    </div>
+
+    <!-- Tab Content -->
+    <div id="purpose" class="tab-content active">
+        <h2>What is DJV2?</h2>
+        <p>DJV2 is a gaming tool built for those passionate about both retro and modern gaming. With seamless DOSBox integration, customizable settings, and an intuitive user interface, DJV2 brings together the best of both worlds.</p>
+        <p>Whether you’re playing classic games or managing newer titles, DJV2 ensures a smooth, high-performance experience, while frequent updates keep you at the forefront of gaming technology.</p>
+    </div>
+
+    <div id="download" class="tab-content">
+        <h2>Download DJV2</h2>
+        <p>Click the button below to download DJV2 & DOSBox Installer. Once downloaded, run the installer to set up DJV2 on your device.</p>
+        <a href="https://github.com/dx1-ctrl/dx1-ctrl.github.io/releases/download/V1.0/DJV2-.-DOSBox-Installer.exe" download="DJV2-.-DOSBox-Installer.exe" class="download-button">Download DJV2 & DOSBox Installer</a>
+    </div>
+
+    <div id="faq" class="tab-content">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq">
+            <div class="question" onclick="toggleAnswer(this)">What platforms does DJV2 support?</div>
+            <div class="answer">DJV2 is currently optimized for Windows, with plans for Linux and Mac support in future releases.</div>
+            <div class="question" onclick="toggleAnswer(this)">Is DJV2 compatible with modern games?</div>
+            <div class="answer">Yes! DJV2 supports both retro and modern titles, making it a versatile tool for all types of gamers.</div>
+            <div class="question" onclick="toggleAnswer(this)">How do I update DJV2?</div>
+            <div class="answer">Simply download the latest installer from our GitHub page, and it will guide you through the update process without affecting your saved data.</div>
         </div>
-        <div class="feature">
-            <h2>Enhanced Performance</h2>
-            <p>Experience faster load times and efficient memory management, so you can focus on the game, not the setup.</p>
-        </div>
-        <div class="feature">
-            <h2>Modern UI</h2>
-            <p>Navigate an intuitive, sleek interface designed for both beginners and expert users.</p>
-        </div>
-        <div class="feature">
-            <h2>Frequent Updates</h2>
-            <p>Get access to regular updates and new features, ensuring your gaming experience stays fresh and responsive.</p>
-        </div>
-        <div class="feature">
-            <h2>Customizable Settings</h2>
-            <p>Tailor your gaming experience with customizable settings and save configurations unique to each game.</p>
-        </div>
-        <div class="feature">
-            <h2>Community Support</h2>
-            <p>Join a community of gamers and developers to share tips, request features, and troubleshoot issues.</p>
-        </div>
-    </section>
+    </div>
 
     <!-- Footer -->
     <footer>
         <p>&copy; 2024 DJV2. All rights reserved. | <a href="https://github.com/dx1-ctrl/DJV2/tree/main">Visit our GitHub</a></p>
     </footer>
+
+    <script>
+        function openTab(tabName) {
+            const tabs = document.querySelectorAll('.tab');
+            const contents = document.querySelectorAll('.tab-content');
+            
+            tabs.forEach(tab => tab.classList.remove('active'));
+            contents.forEach(content => content.classList.remove('active'));
+            
+            document.querySelector(`.tab[onclick="openTab('${tabName}')"]`).classList.add('active');
+            document.getElementById(tabName).classList.add('active');
+        }
+
+        function toggleAnswer(questionElement) {
+            const answer = questionElement.nextElementSibling;
+            answer.style.display = answer.style.display === "block" ? "none" : "block";
+        }
+    </script>
 </body>
 </html>
