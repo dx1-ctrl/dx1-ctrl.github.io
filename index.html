@@ -56,23 +56,24 @@
             background-color: #ffac33;
             transform: translateY(-4px);
         }
-        /* New Features Section */
+        /* Features Section */
         .features {
             display: flex;
-            flex-direction: column;
-            align-items: center;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 1200px;
             margin-top: 4em;
-            text-align: center;
+            gap: 1em;
         }
         .feature {
-            max-width: 800px;
+            width: 300px;
             padding: 1.5em;
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 15px;
-            margin: 1em 0;
             background: rgba(255, 255, 255, 0.05);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
             transition: transform 0.3s;
+            text-align: center;
         }
         .feature:hover {
             transform: translateY(-5px);
@@ -128,11 +129,19 @@
             <h2>Frequent Updates</h2>
             <p>Get access to regular updates and new features, ensuring your gaming experience stays fresh and responsive.</p>
         </div>
+        <div class="feature">
+            <h2>Customizable Settings</h2>
+            <p>Tailor your gaming experience with customizable settings and save configurations unique to each game.</p>
+        </div>
+        <div class="feature">
+            <h2>Community Support</h2>
+            <p>Join a community of gamers and developers to share tips, request features, and troubleshoot issues.</p>
+        </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2024 DJV2. All rights reserved. | <a href="https://github.com/dx1-ctrl/dx1-ctrl.github.io">Visit our GitHub</a></p>
+        <p>&copy; 2024 DJV2. All rights reserved. | <a href="https://github.com/dx1-ctrl/DJV2/tree/main">Visit our GitHub</a></p>
     </footer>
 </body>
 </html>
