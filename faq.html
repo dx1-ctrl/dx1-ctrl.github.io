@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DJV2 - FAQ</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -17,30 +18,48 @@
             <a href="testimonials.html">Testimonials</a>
             <a href="contact.html">Contact</a>
             <a href="update-log.html">Update Log</a>
+            <a href="download.html">Download</a>
         </nav>
     </header>
 
     <section>
         <h2>Frequently Asked Questions</h2>
+
         <div class="faq">
             <div class="question" onclick="toggleAnswer(this)">Which platforms are compatible with DJV2?</div>
-            <div class="answer">DJV2 is currently compatible with Windows. Linux and Mac support are under consideration for future releases.</div>
+            <div class="answer">DJV2 is compatible with Windows. Support for Linux and Mac systems is under consideration for future releases.</div>
 
             <div class="question" onclick="toggleAnswer(this)">How do I update DJV2?</div>
-            <div class="answer">DJV2 includes a built-in updater. Simply open the app, and it will notify you of any available updates, which can be installed with a single click.</div>
+            <div class="answer">DJV2 has a built-in updater. Simply open the app, and it will notify you of any available updates, which you can install with a single click.</div>
 
             <div class="question" onclick="toggleAnswer(this)">What types of games are supported?</div>
-            <div class="answer">DJV2 is optimized for DOS-based games, making it ideal for classic titles. Modern games are not supported, as DJV2 is designed specifically for retro gaming enthusiasts.</div>
+            <div class="answer">DJV2 is optimized for DOS-based games, making it ideal for classic titles from the DOS era. Modern games are not supported, as DJV2 is specifically designed for retro gaming enthusiasts.</div>
 
             <div class="question" onclick="toggleAnswer(this)">Can I customize controls and graphics?</div>
-            <div class="answer">Yes! DJV2 provides a range of customization options for controls, graphics, and audio. This allows you to tailor the gameplay experience to suit your preferences and hardware setup.</div>
+            <div class="answer">Yes, DJV2 offers a range of customization options for controls, graphics, and audio. This allows you to tailor the gameplay experience to suit your preferences and hardware setup.</div>
 
             <div class="question" onclick="toggleAnswer(this)">Is DJV2 free to use?</div>
             <div class="answer">Yes, DJV2 is free to download and use. There are no subscription fees or hidden costs, so you can enjoy retro gaming without any financial commitment.</div>
 
             <div class="question" onclick="toggleAnswer(this)">Does DJV2 support multiplayer functionality?</div>
             <div class="answer">Currently, DJV2 does not support multiplayer functionality. Our focus is on enhancing single-player experiences for classic DOS games, though multiplayer may be considered in future updates.</div>
+
+            <div class="question" onclick="toggleAnswer(this)">How can I organize my game library?</div>
+            <div class="answer">DJV2 includes a library management feature that allows you to organize, add, remove, and categorize your games. This makes it easy to keep track of your collection and find your favorites.</div>
+
+            <div class="question" onclick="toggleAnswer(this)">Is DJV2 difficult to set up for beginners?</div>
+            <div class="answer">Not at all! DJV2 was designed with simplicity in mind. The interface is intuitive, and the setup process is easy to follow, making it accessible for users of all experience levels.</div>
+
+            <div class="question" onclick="toggleAnswer(this)">Can I map my own keys for controls?</div>
+            <div class="answer">Absolutely! DJV2 includes custom key mapping, so you can set controls that are comfortable for you, ensuring an enjoyable gaming experience.</div>
         </div>
     </section>
+
+    <script>
+        function toggleAnswer(questionElement) {
+            const answer = questionElement.nextElementSibling;
+            answer.style.display = answer.style.display === "block" ? "none" : "block";
+        }
+    </script>
 </body>
 </html>
