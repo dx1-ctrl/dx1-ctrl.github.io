@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DJV2 - Ultimate Retro Gaming Experience</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>DJV2 - Modern Retro Gaming Experience</title>
     <style>
         /* Reset */
         * {
@@ -14,159 +13,173 @@
         }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #121212;
-            color: #e0e0e0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            background: #f3f3f3;
+            color: #333;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
         }
-        /* Header Navigation */
+        /* Header */
         header {
             width: 100%;
-            background: #1f1f1f;
-            color: #ffd700;
             padding: 1em 2em;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-            position: sticky;
+            position: fixed;
             top: 0;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
             z-index: 1000;
         }
-        header h1 {
-            font-size: 1.8em;
-            color: #ffd700;
-            font-weight: bold;
-        }
-        .nav-links {
+        header nav {
             display: flex;
-            gap: 1.5em;
+            justify-content: center;
+            gap: 2em;
         }
-        .nav-links a {
-            color: #ffd700;
+        header a {
+            color: #333;
             text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
+            font-weight: bold;
+            font-size: 1em;
+            transition: color 0.3s;
         }
-        .nav-links a:hover {
-            color: #ffac33;
+        header a:hover {
+            color: #ff6f61;
         }
         /* Hero Section */
         .hero {
             width: 100%;
-            padding: 4em 2em;
-            background: linear-gradient(to right, #1e1e2f, #23253d);
-            color: #ffd700;
+            height: 100vh;
+            background: linear-gradient(135deg, #ff6f61, #ff9a8d);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
+            flex-direction: column;
         }
-        .hero h2 {
+        .hero h1 {
             font-size: 3em;
             margin-bottom: 0.5em;
+            letter-spacing: 2px;
         }
         .hero p {
             font-size: 1.2em;
             max-width: 600px;
-            margin: auto;
-            color: #e0e0e0;
+            margin-bottom: 1em;
         }
-        /* Download Section */
-        .download-section {
-            padding: 3em 0;
-            text-align: center;
-            background: #232535;
-            color: #ffd700;
-        }
-        .download-button {
-            padding: 1em 3em;
-            background: linear-gradient(90deg, #ffd700, #ffac33);
-            color: #1e1e2f;
-            text-decoration: none;
-            border-radius: 50px;
-            font-size: 1.3em;
+        .hero a {
+            padding: 0.8em 2em;
+            background: white;
+            color: #ff6f61;
             font-weight: bold;
-            transition: all 0.3s ease;
-            box-shadow: 0px 4px 10px rgba(255, 165, 0, 0.3);
-            margin-top: 1.5em;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background 0.3s, color 0.3s;
         }
-        .download-button:hover {
-            background: linear-gradient(90deg, #ffac33, #ffd700);
-            transform: translateY(-3px);
-            box-shadow: 0px 6px 20px rgba(255, 165, 0, 0.5);
+        .hero a:hover {
+            background: #ff9a8d;
+            color: white;
         }
-        /* Content Section */
-        .content-section {
-            width: 90%;
+        /* Section Styling */
+        section {
+            padding: 4em 2em;
             max-width: 1000px;
-            padding: 2em 0;
+            margin: auto;
+        }
+        h2 {
+            font-size: 2em;
+            color: #333;
+            margin-bottom: 1em;
+            text-align: center;
+        }
+        /* About and Purpose Section */
+        .about, .purpose {
             display: flex;
-            flex-direction: column;
             gap: 2em;
+            margin-bottom: 3em;
         }
-        .card {
-            background: #1f1f2f;
-            padding: 2em;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s ease;
+        .about img, .purpose img {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 10px;
         }
-        .card:hover {
+        /* Features Section */
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1em;
+        }
+        .feature-card {
+            flex: 1 1 45%;
+            background: #fff;
+            padding: 1.5em;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        .feature-card:hover {
             transform: translateY(-5px);
         }
-        .card h2 {
-            color: #ffd700;
-            margin-bottom: 1em;
-        }
         /* FAQ Section */
-        .faq h3 {
-            font-size: 1.5em;
-            color: #ffd700;
-            margin-bottom: 1em;
+        .faq {
+            max-width: 800px;
+            margin: auto;
         }
-        .question {
-            margin: 1em 0;
+        .faq .question {
             font-weight: bold;
-            color: #ffd700;
+            margin: 1em 0;
             cursor: pointer;
-            transition: color 0.3s ease;
+            color: #333;
+            transition: color 0.3s;
         }
-        .answer {
+        .faq .question:hover {
+            color: #ff6f61;
+        }
+        .faq .answer {
             display: none;
-            margin: 0.5em 0 1.5em;
-            font-size: 1em;
-            color: #b3b3cc;
-            text-align: left;
+            color: #666;
             padding-left: 1em;
-            border-left: 3px solid #ffd700;
+            border-left: 3px solid #ff6f61;
         }
-        .question:hover {
-            color: #ffac33;
+        /* Testimonials Carousel */
+        .carousel {
+            display: flex;
+            overflow-x: auto;
+            gap: 1em;
+            scroll-snap-type: x mandatory;
+            padding: 2em 0;
+        }
+        .testimonial {
+            flex: 0 0 300px;
+            background: #fff;
+            padding: 1.5em;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            scroll-snap-align: center;
+            transition: transform 0.3s;
+        }
+        .testimonial:hover {
+            transform: translateY(-5px);
         }
         /* Footer */
         footer {
-            width: 100%;
-            padding: 1em 0;
-            background: #1f1f1f;
             text-align: center;
-            color: #666;
-            font-size: 0.9em;
-            margin-top: 3em;
+            padding: 2em;
+            background: #333;
+            color: white;
         }
         footer a {
-            color: #ffd700;
+            color: #ff6f61;
             text-decoration: none;
-            transition: color 0.3s ease;
+            font-weight: bold;
         }
         footer a:hover {
-            color: #ffac33;
+            color: #ff9a8d;
         }
     </style>
 </head>
 <body>
-    <!-- Header Navigation -->
+    <!-- Header -->
     <header>
-        <h1>DJV2</h1>
-        <nav class="nav-links">
+        <nav>
             <a href="#about">About</a>
             <a href="#purpose">Purpose</a>
             <a href="#features">Features</a>
@@ -180,79 +193,80 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <h2>DJV2</h2>
+        <h1>DJV2</h1>
         <p>Your ultimate tool for seamless retro gaming. Relive the classics with ease.</p>
+        <a href="#download">Download Now</a>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2>About DJV2</h2>
+        <div class="about">
+            <img src="https://via.placeholder.com/300" alt="DJV2 Image">
+            <p>DJV2 is designed to make playing retro DOS games as simple as possible. This solo project focuses on creating a seamless, modern interface for launching and managing classic games on DOSBox, bridging the gap between past and present gaming.</p>
+        </div>
+    </section>
+
+    <!-- Purpose Section -->
+    <section id="purpose">
+        <h2>Purpose of DJV2</h2>
+        <div class="purpose">
+            <img src="https://via.placeholder.com/300" alt="Purpose Image">
+            <p>The original goal was to help my mom enjoy nostalgic games with ease. Since then, DJV2 has evolved into a user-friendly tool that allows anyone to dive into retro gaming without hassle.</p>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features">
+        <h2>Key Features</h2>
+        <div class="features">
+            <div class="feature-card">
+                <h3>High Compatibility</h3>
+                <p>DJV2 seamlessly runs DOS games on modern hardware with DOSBox integration, ensuring smooth gameplay and high compatibility.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Customizable Settings</h3>
+                <p>Modify graphics, sound, and controls to suit your preferences for the best retro gaming experience.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Save State Management</h3>
+                <p>Save and load game states anytime, making it easy to pick up where you left off in your classic adventures.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Automatic Updates</h3>
+                <p>Receive the latest updates and features automatically, so DJV2 is always improving for you.</p>
+            </div>
+        </div>
     </section>
 
     <!-- Download Section -->
     <section id="download" class="download-section">
-        <h2>Download DJV2 & DOSBox Installer</h2>
-        <p>Get started with DJV2 to enjoy retro gaming on modern systems. Click the button below to download the latest version.</p>
-        <a href="https://github.com/dx1-ctrl/dx1-ctrl.github.io/releases/download/V1.0/DJV2-.-DOSBox-Installer.exe" class="download-button">Download DJV2 & DOSBox Installer</a>
+        <h2>Download DJV2</h2>
+        <p>Click the button below to download DJV2 & DOSBox Installer and start your retro gaming experience.</p>
+        <a href="https://github.com/dx1-ctrl/dx1-ctrl.github.io/releases/download/V1.0/DJV2-.-DOSBox-Installer.exe" class="download-button">Download Now</a>
     </section>
 
-    <!-- Content Sections -->
-    <div class="content-section">
-        <!-- About Section -->
-        <div id="about" class="card">
-            <h2>About DJV2</h2>
-            <p>DJV2 is a solo project aimed at providing retro gaming enthusiasts with an easy way to enjoy classic DOS-based games. With seamless DOSBox integration, DJV2 takes care of all the setup and configurations, making gaming straightforward for users of all experience levels.</p>
+    <!-- FAQ Section -->
+    <section id="faq">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq">
+            <div class="question" onclick="toggleAnswer(this)">Which platforms are compatible with DJV2?</div>
+            <div class="answer">DJV2 is compatible with Windows, and Linux/Mac support is under consideration.</div>
+
+            <div class="question" onclick="toggleAnswer(this)">How do I update DJV2?</div>
+            <div class="answer">Use the built-in updater to receive the latest features and improvements automatically.</div>
         </div>
+    </section>
 
-        <!-- Purpose Section -->
-        <div id="purpose" class="card">
-            <h2>Purpose of DJV2</h2>
-            <p>DJV2 was created to simplify the process of playing DOS-based games on modern hardware. Initially developed to help my mom enjoy nostalgic games, DJV2 has grown into a broader tool that aims to bring the joy of classic games to everyone, free from technical barriers.</p>
-        </div>
-
-        <!-- Features Section -->
-        <div id="features" class="card">
-            <h2>Key Features</h2>
-            <ul>
-                <li><strong>High Compatibility:</strong> Runs DOS-based games on modern systems with the help of DOSBox, ensuring smooth compatibility.</li>
-                <li><strong>Customizable Settings:</strong> Modify graphics, audio, and control settings easily to optimize your gaming experience.</li>
-                <li><strong>Intuitive User Interface:</strong> A user-friendly interface that allows even non-tech-savvy users to play games with ease.</li>
-                <li><strong>Save State Management:</strong> Save and load games with a single click, making it easy to continue your retro adventures at any time.</li>
-                <li><strong>Automatic Updates:</strong> Keep DJV2 up to date with automatic updates that add new features and enhancements.</li>
-            </ul>
-        </div>
-
-        <!-- FAQ Section -->
-        <div id="faq" class="card">
-            <h2>Frequently Asked Questions</h2>
-            <div class="faq">
-                <div class="question" onclick="toggleAnswer(this)">Which platforms are compatible with DJV2?</div>
-                <div class="answer">DJV2 is currently compatible with Windows. Linux and Mac support are under consideration for future releases.</div>
-
-                <div class="question" onclick="toggleAnswer(this)">How do I update DJV2?</div>
-                <div class="answer">DJV2 includes a built-in updater that allows you to easily apply updates. Simply click the 'Check for Updates' button in the settings menu.</div>
-
-                <div class="question" onclick="toggleAnswer(this)">What games does DJV2 support?</div>
-                <div class="answer">DJV2 is optimized for DOS-based games via DOSBox. It does not support modern games but aims to make retro DOS games as enjoyable as possible.</div>
+    <!-- Testimonials Section -->
+    <section id="testimonials">
+        <h2>Testimonials</h2>
+        <div class="carousel">
+            <div class="testimonial">
+                <p>"DJV2 makes retro gaming so much easier!"</p>
             </div>
         </div>
-
-        <!-- Testimonials Section -->
-        <div id="testimonials" class="card">
-            <h2>Testimonials</h2>
-            <p>There are currently no testimonials. If you would like to share your experience, email it to <a href="mailto:dx1ctrl@gmail.com">dx1ctrl@gmail.com</a>. Your feedback is valuable to make DJV2 even better!</p>
-        </div>
-
-        <!-- Contact Section -->
-        <div id="contact" class="card">
-            <h2>Contact Me</h2>
-            <p>If you have any questions, suggestions, or issues, please contact me at <a href="mailto:dx1ctrl@gmail.com">dx1ctrl@gmail.com</a>. Your input helps make DJV2 even better for the community!</p>
-        </div>
-
-        <!-- Update Log Section -->
-        <div id="update-log" class="card">
-            <h2>Update Log</h2>
-            <div class="update">
-                <h3>Version 1.0</h3>
-                <p>Initial release with core features, including compatibility with DOS-based games, customizable settings, and a user-friendly interface.</p>
-            </div>
-        </div>
-    </div>
+    </section>
 
     <!-- Footer -->
     <footer>
