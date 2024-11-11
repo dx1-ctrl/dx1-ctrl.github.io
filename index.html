@@ -13,10 +13,9 @@
         }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f3f3f3;
+            background: #f0f2f5;
             color: #333;
             scroll-behavior: smooth;
-            overflow-x: hidden;
         }
         /* Header */
         header {
@@ -24,7 +23,7 @@
             padding: 1em 2em;
             position: fixed;
             top: 0;
-            background: rgba(255, 255, 255, 0.95);
+            background: #ffffff;
             box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
             z-index: 1000;
         }
@@ -37,17 +36,16 @@
             color: #333;
             text-decoration: none;
             font-weight: bold;
-            font-size: 1em;
             transition: color 0.3s;
         }
         header a:hover {
-            color: #ff6f61;
+            color: #0077b6;
         }
         /* Hero Section */
         .hero {
             width: 100%;
             height: 100vh;
-            background: linear-gradient(135deg, #ff6f61, #ff9a8d);
+            background: linear-gradient(135deg, #0077b6, #00a9e0);
             color: white;
             display: flex;
             align-items: center;
@@ -58,7 +56,7 @@
         .hero h1 {
             font-size: 3em;
             margin-bottom: 0.5em;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
         }
         .hero p {
             font-size: 1.2em;
@@ -66,16 +64,18 @@
             margin-bottom: 1em;
         }
         .hero a {
-            padding: 0.8em 2em;
+            padding: 1em 2.5em;
             background: white;
-            color: #ff6f61;
+            color: #0077b6;
             font-weight: bold;
-            border-radius: 5px;
+            border-radius: 50px;
             text-decoration: none;
+            font-size: 1.2em;
             transition: background 0.3s, color 0.3s;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         }
         .hero a:hover {
-            background: #ff9a8d;
+            background: #0077b6;
             color: white;
         }
         /* Section Styling */
@@ -131,13 +131,13 @@
             transition: color 0.3s;
         }
         .faq .question:hover {
-            color: #ff6f61;
+            color: #0077b6;
         }
         .faq .answer {
             display: none;
             color: #666;
             padding-left: 1em;
-            border-left: 3px solid #ff6f61;
+            border-left: 3px solid #0077b6;
         }
         /* Testimonials Carousel */
         .carousel {
@@ -167,12 +167,12 @@
             color: white;
         }
         footer a {
-            color: #ff6f61;
+            color: #0077b6;
             text-decoration: none;
             font-weight: bold;
         }
         footer a:hover {
-            color: #ff9a8d;
+            color: #00a9e0;
         }
     </style>
 </head>
@@ -265,6 +265,21 @@
             <div class="testimonial">
                 <p>"DJV2 makes retro gaming so much easier!"</p>
             </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <p>If you have any questions or suggestions, feel free to reach out at <a href="mailto:dx1ctrl@gmail.com">dx1ctrl@gmail.com</a>.</p>
+    </section>
+
+    <!-- Update Log Section -->
+    <section id="update-log">
+        <h2>Update Log</h2>
+        <div class="update">
+            <h3>Version 1.0</h3>
+            <p>Initial release with core features, including compatibility with DOS-based games, customizable settings, and a user-friendly interface.</p>
         </div>
     </section>
 
