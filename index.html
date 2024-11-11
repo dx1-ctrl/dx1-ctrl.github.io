@@ -14,128 +14,108 @@
         }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #0d1117;
+            background: #121212;
             color: #e0e0e0;
-            display: flex;
-            overflow-x: hidden;
-            padding-bottom: 50px;
-        }
-        /* Full-Screen Overlay Background with Animation */
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle, #1f1f2e, #232535, #292b3f, #111321);
-            background-size: 200% 200%;
-            animation: bgAnimation 15s ease infinite;
-            z-index: -1;
-        }
-        @keyframes bgAnimation {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        /* Sidebar Navigation */
-        .sidebar {
-            position: fixed;
-            left: 0;
-            top: 0;
-            width: 15%;
-            height: 100%;
-            background: rgba(20, 21, 30, 0.95);
-            padding: 2em 1em;
             display: flex;
             flex-direction: column;
             align-items: center;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
         }
-        .sidebar a {
+        /* Header Navigation */
+        header {
+            width: 100%;
+            background: #1f1f1f;
+            color: #ffd700;
+            padding: 1em 2em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        header h1 {
+            font-size: 1.8em;
+            color: #ffd700;
+            font-weight: bold;
+        }
+        .nav-links {
+            display: flex;
+            gap: 1.5em;
+        }
+        .nav-links a {
             color: #ffd700;
             text-decoration: none;
-            font-weight: bold;
-            font-size: 1.1em;
-            margin: 1em 0;
-            transition: transform 0.3s ease, color 0.3s ease;
-            display: flex;
-            align-items: center;
+            font-weight: 500;
+            transition: color 0.3s ease;
         }
-        .sidebar a i {
-            margin-right: 10px;
-        }
-        .sidebar a:hover {
+        .nav-links a:hover {
             color: #ffac33;
-            transform: translateX(5px);
-        }
-        /* Main Content Area */
-        .content-area {
-            margin-left: 18%;
-            width: 75%;
-            padding: 4em 2em;
-            background: rgba(255, 255, 255, 0.06);
-            border-radius: 15px;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-            position: relative;
-            overflow: hidden;
-            transition: transform 0.5s ease;
-        }
-        .content-area:hover {
-            transform: translateY(-5px);
         }
         /* Hero Section */
-        .hero-banner {
+        .hero {
             width: 100%;
-            background: url('https://via.placeholder.com/1500x400') center/cover;
-            height: 400px;
-            position: relative;
-            overflow: hidden;
-        }
-        .hero-banner .hero-content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            padding: 4em 2em;
+            background: linear-gradient(to right, #1e1e2f, #23253d);
             color: #ffd700;
             text-align: center;
-            background: rgba(0, 0, 0, 0.6);
-            padding: 1em 2em;
-            border-radius: 10px;
         }
-        .hero-banner h1 {
+        .hero h2 {
             font-size: 3em;
-            text-transform: uppercase;
+            margin-bottom: 0.5em;
         }
-        .hero-banner p {
-            margin-top: 0.5em;
+        .hero p {
             font-size: 1.2em;
+            max-width: 600px;
+            margin: auto;
+            color: #e0e0e0;
         }
-        .hero-banner .cta-button {
-            margin-top: 1em;
-            padding: 0.8em 2em;
+        /* Download Section */
+        .download-section {
+            padding: 3em 0;
+            text-align: center;
+            background: #232535;
+            color: #ffd700;
+        }
+        .download-button {
+            padding: 1em 3em;
             background: linear-gradient(90deg, #ffd700, #ffac33);
             color: #1e1e2f;
-            font-weight: bold;
             text-decoration: none;
-            border-radius: 25px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 50px;
+            font-size: 1.3em;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0px 4px 10px rgba(255, 165, 0, 0.3);
+            margin-top: 1.5em;
         }
-        .hero-banner .cta-button:hover {
+        .download-button:hover {
+            background: linear-gradient(90deg, #ffac33, #ffd700);
             transform: translateY(-3px);
-            box-shadow: 0px 6px 20px rgba(255, 165, 0, 0.4);
+            box-shadow: 0px 6px 20px rgba(255, 165, 0, 0.5);
         }
-        /* Card-Based Content */
+        /* Content Section */
+        .content-section {
+            width: 90%;
+            max-width: 1000px;
+            padding: 2em 0;
+            display: flex;
+            flex-direction: column;
+            gap: 2em;
+        }
         .card {
-            background: rgba(35, 37, 53, 0.85);
+            background: #1f1f2f;
             padding: 2em;
-            margin-bottom: 2em;
             border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
             transition: transform 0.3s ease;
         }
         .card:hover {
             transform: translateY(-5px);
+        }
+        .card h2 {
+            color: #ffd700;
+            margin-bottom: 1em;
         }
         /* FAQ Section */
         .faq h3 {
@@ -162,65 +142,71 @@
         .question:hover {
             color: #ffac33;
         }
-        /* Floating Action Button */
-        .fab {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: #ffd700;
-            padding: 1em;
-            border-radius: 50%;
-            box-shadow: 0 6px 20px rgba(255, 165, 0, 0.4);
-            color: #1e1e2f;
+        /* Footer */
+        footer {
+            width: 100%;
+            padding: 1em 0;
+            background: #1f1f1f;
             text-align: center;
-            font-size: 1.5em;
-            cursor: pointer;
-            transition: transform 0.3s ease;
+            color: #666;
+            font-size: 0.9em;
+            margin-top: 3em;
         }
-        .fab:hover {
-            transform: translateY(-3px);
-            box-shadow: 0px 8px 25px rgba(255, 165, 0, 0.5);
+        footer a {
+            color: #ffd700;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        footer a:hover {
+            color: #ffac33;
         }
     </style>
 </head>
 <body>
-    <!-- Sidebar Navigation -->
-    <div class="sidebar">
-        <a href="#about" onclick="openTab('about')"><i class="fas fa-info-circle"></i> About</a>
-        <a href="#purpose" onclick="openTab('purpose')"><i class="fas fa-bullseye"></i> Purpose</a>
-        <a href="#features" onclick="openTab('features')"><i class="fas fa-cogs"></i> Features</a>
-        <a href="#download" onclick="openTab('download')"><i class="fas fa-download"></i> Download</a>
-        <a href="#faq" onclick="openTab('faq')"><i class="fas fa-question-circle"></i> FAQ</a>
-        <a href="#testimonials" onclick="openTab('testimonials')"><i class="fas fa-comment"></i> Testimonials</a>
-        <a href="#contact" onclick="openTab('contact')"><i class="fas fa-envelope"></i> Contact</a>
-        <a href="#update-log" onclick="openTab('update-log')"><i class="fas fa-history"></i> Update Log</a>
-    </div>
+    <!-- Header Navigation -->
+    <header>
+        <h1>DJV2</h1>
+        <nav class="nav-links">
+            <a href="#about">About</a>
+            <a href="#purpose">Purpose</a>
+            <a href="#features">Features</a>
+            <a href="#download">Download</a>
+            <a href="#faq">FAQ</a>
+            <a href="#testimonials">Testimonials</a>
+            <a href="#contact">Contact</a>
+            <a href="#update-log">Update Log</a>
+        </nav>
+    </header>
 
-    <!-- Main Content Area -->
-    <div class="content-area">
-        <!-- Hero Banner -->
-        <div class="hero-banner">
-            <div class="hero-content">
-                <h1>DJV2</h1>
-                <p>The ultimate tool for seamless retro gaming.</p>
-                <a href="#download" class="cta-button">Download Now</a>
-            </div>
-        </div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <h2>DJV2</h2>
+        <p>Your ultimate tool for seamless retro gaming. Relive the classics with ease.</p>
+    </section>
 
+    <!-- Download Section -->
+    <section id="download" class="download-section">
+        <h2>Download DJV2 & DOSBox Installer</h2>
+        <p>Get started with DJV2 to enjoy retro gaming on modern systems. Click the button below to download the latest version.</p>
+        <a href="https://github.com/dx1-ctrl/dx1-ctrl.github.io/releases/download/V1.0/DJV2-.-DOSBox-Installer.exe" class="download-button">Download DJV2 & DOSBox Installer</a>
+    </section>
+
+    <!-- Content Sections -->
+    <div class="content-section">
         <!-- About Section -->
-        <div id="about" class="tab-content card">
+        <div id="about" class="card">
             <h2>About DJV2</h2>
             <p>DJV2 is a solo project aimed at providing retro gaming enthusiasts with an easy way to enjoy classic DOS-based games. With seamless DOSBox integration, DJV2 takes care of all the setup and configurations, making gaming straightforward for users of all experience levels.</p>
         </div>
 
         <!-- Purpose Section -->
-        <div id="purpose" class="tab-content card">
+        <div id="purpose" class="card">
             <h2>Purpose of DJV2</h2>
             <p>DJV2 was created to simplify the process of playing DOS-based games on modern hardware. Initially developed to help my mom enjoy nostalgic games, DJV2 has grown into a broader tool that aims to bring the joy of classic games to everyone, free from technical barriers.</p>
         </div>
 
         <!-- Features Section -->
-        <div id="features" class="tab-content card">
+        <div id="features" class="card">
             <h2>Key Features</h2>
             <ul>
                 <li><strong>High Compatibility:</strong> Runs DOS-based games on modern systems with the help of DOSBox, ensuring smooth compatibility.</li>
@@ -231,15 +217,8 @@
             </ul>
         </div>
 
-        <!-- Download Section -->
-        <div id="download" class="tab-content card">
-            <h2>Download DJV2</h2>
-            <p>Click the button below to download the DJV2 & DOSBox Installer. After installation, run the built-in updater to keep DJV2 up to date with the latest features and improvements.</p>
-            <a href="https://github.com/dx1-ctrl/dx1-ctrl.github.io/releases/download/V1.0/DJV2-.-DOSBox-Installer.exe" download="DJV2-.-DOSBox-Installer.exe" class="download-button">Download DJV2 & DOSBox Installer</a>
-        </div>
-
         <!-- FAQ Section -->
-        <div id="faq" class="tab-content card">
+        <div id="faq" class="card">
             <h2>Frequently Asked Questions</h2>
             <div class="faq">
                 <div class="question" onclick="toggleAnswer(this)">Which platforms are compatible with DJV2?</div>
@@ -250,53 +229,41 @@
 
                 <div class="question" onclick="toggleAnswer(this)">What games does DJV2 support?</div>
                 <div class="answer">DJV2 is optimized for DOS-based games via DOSBox. It does not support modern games but aims to make retro DOS games as enjoyable as possible.</div>
-
-                <div class="question" onclick="toggleAnswer(this)">Is DJV2 open-source?</div>
-                <div class="answer">Currently, DJV2 is not open-source, but we welcome community feedback and suggestions for future improvements.</div>
             </div>
         </div>
 
         <!-- Testimonials Section -->
-        <div id="testimonials" class="tab-content card">
+        <div id="testimonials" class="card">
             <h2>Testimonials</h2>
             <p>There are currently no testimonials. If you would like to share your experience, email it to <a href="mailto:dx1ctrl@gmail.com">dx1ctrl@gmail.com</a>. Your feedback is valuable to make DJV2 even better!</p>
         </div>
 
         <!-- Contact Section -->
-        <div id="contact" class="tab-content card">
+        <div id="contact" class="card">
             <h2>Contact Me</h2>
             <p>If you have any questions, suggestions, or issues, please contact me at <a href="mailto:dx1ctrl@gmail.com">dx1ctrl@gmail.com</a>. Your input helps make DJV2 even better for the community!</p>
         </div>
 
         <!-- Update Log Section -->
-        <div id="update-log" class="tab-content card">
+        <div id="update-log" class="card">
             <h2>Update Log</h2>
             <div class="update">
-                <h3>Version 29.87.71</h3>
-                <p>New quicker authentication system added for an improved and faster login experience. Performance improvements and bug fixes were also included in this version to make the user experience smoother and more reliable.</p>
+                <h3>Version 1.0</h3>
+                <p>Initial release with core features, including compatibility with DOS-based games, customizable settings, and a user-friendly interface.</p>
             </div>
         </div>
     </div>
 
-    <!-- Floating Action Button (FAB) for Quick Download -->
-    <div class="fab" onclick="window.location.href='#download'">
-        <i class="fas fa-download"></i>
-    </div>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 DJV2. All rights reserved. | <a href="https://github.com/dx1-ctrl/DJV2/tree/main">Visit GitHub</a></p>
+    </footer>
 
     <script>
-        function openTab(tabName) {
-            const tabs = document.querySelectorAll('.tab-content');
-            tabs.forEach(content => content.style.display = 'none');
-            document.getElementById(tabName).style.display = 'block';
-        }
-
         function toggleAnswer(questionElement) {
             const answer = questionElement.nextElementSibling;
             answer.style.display = answer.style.display === "block" ? "none" : "block";
         }
-
-        // Default: Show About tab
-        openTab('about');
     </script>
 </body>
 </html>
