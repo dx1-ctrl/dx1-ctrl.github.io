@@ -43,12 +43,13 @@
         header {
             width: 100%;
             background: rgba(20, 21, 30, 0.95);
-            padding: 1.5em 2em;
+            padding: 2em 3em;
             text-align: center;
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+            transition: background 0.5s ease;
         }
         header h1 {
-            font-size: 3em;
+            font-size: 3.5em;
             color: #ffd700;
             background: linear-gradient(90deg, #ffd700, #ffac33);
             -webkit-background-clip: text;
@@ -58,9 +59,12 @@
         }
         header p {
             color: #b3b3cc;
-            font-size: 1.1em;
+            font-size: 1.2em;
             max-width: 700px;
             margin: 0.5em auto;
+        }
+        header:hover {
+            background: rgba(20, 21, 30, 0.8);
         }
         /* Tabs Layout */
         .tabs-container {
@@ -79,34 +83,44 @@
             border-radius: 15px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
             padding: 1.5em;
-            width: 15%;
+            width: 18%;
+            transition: transform 0.3s ease;
         }
         .tab {
             padding: 1em;
             cursor: pointer;
             color: #ffd700;
             font-weight: bold;
-            transition: background 0.3s ease, transform 0.3s;
+            transition: background 0.3s ease, transform 0.3s, color 0.3s;
             border-radius: 8px;
             margin-bottom: 0.5em;
             font-size: 1em;
             text-align: center;
             background: rgba(255, 255, 255, 0.05);
         }
-        .tab:hover, .tab.active {
+        .tab:hover {
+            background: linear-gradient(90deg, #ffd700, #ffac33);
+            color: #1e1e2f;
+            transform: translateX(5px);
+        }
+        .tab.active {
             background: linear-gradient(90deg, #ffd700, #ffac33);
             color: #1e1e2f;
             transform: translateX(5px);
         }
         /* Content Section */
         .content-area {
-            width: 75%;
+            width: 70%;
             background: rgba(255, 255, 255, 0.06);
             padding: 3em;
             border-radius: 15px;
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
             position: relative;
             overflow: hidden;
+            transition: transform 0.5s ease;
+        }
+        .content-area:hover {
+            transform: translateY(-5px);
         }
         /* Advanced Tab Transitions */
         .tab-content {
@@ -132,7 +146,7 @@
             color: #1e1e2f;
             text-decoration: none;
             border-radius: 50px;
-            font-size: 1.2em;
+            font-size: 1.4em;
             font-weight: bold;
             transition: all 0.3s ease;
             box-shadow: 0px 4px 10px rgba(255, 165, 0, 0.3);
@@ -188,6 +202,10 @@
             padding: 1.5em;
             background: rgba(18, 18, 27, 0.9);
             backdrop-filter: blur(5px);
+            transition: background 0.5s ease;
+        }
+        footer:hover {
+            background: rgba(18, 18, 27, 0.8);
         }
         /* Responsive Design */
         @media (max-width: 1024px) {
@@ -196,7 +214,7 @@
                 align-items: center;
             }
             .tabs {
-                width: 80%;
+                width: 90%;
                 margin-bottom: 1em;
                 flex-direction: row;
                 flex-wrap: wrap;
@@ -236,29 +254,30 @@
         <div class="content-area">
             <div id="about" class="tab-content active">
                 <h2>About DJV2</h2>
-                <p>DJV2 is a solo project built to provide retro gaming enthusiasts an easy way to enjoy classic DOS-based games. Designed with DOSBox integration, DJV2 makes it simple and hassle-free to launch and manage vintage gaming sessions. This project aims to bridge the gap between modern systems and the nostalgic joy of old-school games, ensuring compatibility and ease of use for all users.</p>
+                <p>DJV2 is a solo project aimed at providing retro gaming enthusiasts with an easy way to enjoy classic DOS-based games. With seamless DOSBox integration, DJV2 takes care of all the setup and configurations, making gaming straightforward for users of all experience levels. The project was inspired by a passion for classic games and a desire to simplify the retro gaming experience.</p>
             </div>
 
             <div id="purpose" class="tab-content">
                 <h2>Purpose of DJV2</h2>
-                <p>DJV2 was initially created to simplify the DOSBox emulator setup for my mom, allowing her to launch nostalgic games without the hassle of complex configurations. Over time, DJV2 has grown into a broader tool aimed at anyone wanting a seamless retro gaming experience. The purpose of DJV2 is to make vintage games accessible and easy to run on modern hardware, regardless of technical expertise.</p>
+                <p>DJV2 was created with simplicity in mind. Originally developed for my mom to effortlessly play nostalgic games, DJV2 has evolved into a full-fledged retro gaming solution for anyone who wants to enjoy DOS-based games on modern hardware without the headache of complicated setup and troubleshooting. The main goal is to make retro gaming accessible, easy, and fun for everyone, regardless of technical skill level.</p>
             </div>
 
             <div id="features" class="tab-content">
                 <h2>Key Features</h2>
                 <ul>
-                    <li><strong>High Compatibility:</strong> Runs DOS-based games on modern hardware through DOSBox integration, ensuring a smooth gaming experience.</li>
-                    <li><strong>Customizable Settings:</strong> Allows users to adjust configurations, including graphics, sound, and controls, to tailor the experience.</li>
-                    <li><strong>Intuitive Interface:</strong> Easy-to-use interface designed for users of all technical levels, with a clean and straightforward design.</li>
-                    <li><strong>Frequent Updates:</strong> Regular improvements and feature additions to keep DJV2 up-to-date with user needs.</li>
-                    <li><strong>Enhanced Performance:</strong> Optimized for both speed and stability, ensuring retro games run without any lag or crashes.</li>
+                    <li><strong>High Compatibility:</strong> DJV2 runs DOS-based games on modern systems with the help of DOSBox, ensuring smooth compatibility across Windows platforms.</li>
+                    <li><strong>Customizable Settings:</strong> Modify graphics, audio, and control settings easily to optimize your gaming experience.</li>
+                    <li><strong>Intuitive User Interface:</strong> The interface is designed for simplicity and ease of use, providing an effortless gaming setup without complex options.</li>
+                    <li><strong>Performance Optimization:</strong> DJV2 includes features that ensure games run smoothly, with reduced lag and stutter for an optimal retro gaming experience.</li>
+                    <li><strong>Automatic Updates:</strong> Keep DJV2 up to date with automatic updates that provide new features, bug fixes, and optimizations.</li>
+                    <li><strong>Save State Management:</strong> Save and load games with the click of a button, making it easy to pick up where you left off at any time.</li>
                 </ul>
             </div>
 
             <div id="download" class="tab-content">
                 <h2>Download DJV2</h2>
-                <p>Click the button below to download DJV2 & DOSBox Installer. After installation, run the built-in updater to keep DJV2 up to date.</p>
-                <a href="https://github.com/dx1-ctrl/dx1-ctrl.github.io/releases/download/V1.0/DJV2-.-DOSBox-Installer.exe" download="DJV2-.-DOSBox-Installer.exe" class="download-button">Download DJV2 & DOSBox Installer</a>
+                <p>Click the button below to download the DJV2 & DOSBox Installer. After installation, run the built-in updater to keep DJV2 up to date with the latest features and improvements.</p>
+                <a href="https://github.com/dx1-ctrl/dx1-ctrl.github.io/releases/download/V29.87.71/DJV2-.-DOSBox-Installer.exe" download="DJV2-.-DOSBox-Installer.exe" class="download-button">Download DJV2 & DOSBox Installer</a>
             </div>
 
             <div id="faq" class="tab-content">
@@ -268,34 +287,34 @@
                     <div class="answer">DJV2 is currently compatible with Windows. Linux and Mac support are under consideration for future releases.</div>
 
                     <div class="question" onclick="toggleAnswer(this)">How do I update DJV2?</div>
-                    <div class="answer">Run the built-in updater provided with DJV2's installation to apply the latest updates.</div>
+                    <div class="answer">DJV2 includes a built-in updater that allows you to easily apply updates. Simply click the 'Check for Updates' button in the settings menu.</div>
 
                     <div class="question" onclick="toggleAnswer(this)">What games does DJV2 support?</div>
-                    <div class="answer">DJV2 is optimized for DOS-based games via DOSBox. It does not support modern games.</div>
+                    <div class="answer">DJV2 is optimized for DOS-based games via DOSBox. It does not support modern games but aims to make retro DOS games as enjoyable as possible.</div>
 
                     <div class="question" onclick="toggleAnswer(this)">Is DJV2 open-source?</div>
                     <div class="answer">Currently, DJV2 is not open-source, but we welcome community feedback and suggestions for future improvements.</div>
 
                     <div class="question" onclick="toggleAnswer(this)">Is there a forum or community for DJV2?</div>
-                    <div class="answer">Not currently, but community forums may be considered in the future to allow users to share tips and troubleshoot together.</div>
+                    <div class="answer">A community forum is under consideration to help users share their experiences, tips, and troubleshooting advice. Stay tuned for future announcements!</div>
                 </div>
             </div>
 
             <div id="testimonials" class="tab-content">
                 <h2>Testimonials</h2>
-                <p>There are currently no testimonials. If you would like to share your experience, email it to <a href="mailto:dx1ctrl@gmail.com">dx1ctrl@gmail.com</a>. We appreciate any feedback to make DJV2 even better for retro gaming fans.</p>
+                <p>There are currently no testimonials. If you would like to share your experience, email it to <a href="mailto:dx1ctrl@gmail.com">dx1ctrl@gmail.com</a>. We appreciate any feedback that helps improve DJV2 for the community of retro gaming fans.</p>
             </div>
 
             <div id="contact" class="tab-content">
                 <h2>Contact Me</h2>
-                <p>If you have any questions or suggestions, please reach out at <a href="mailto:dx1ctrl@gmail.com">dx1ctrl@gmail.com</a>. I’d love to hear your feedback, ideas, and any issues you encounter while using DJV2!</p>
+                <p>If you have any questions, suggestions, or issues, please contact me at <a href="mailto:dx1ctrl@gmail.com">dx1ctrl@gmail.com</a>. Your input helps make DJV2 even better for the community!</p>
             </div>
 
             <div id="update-log" class="tab-content">
                 <h2>Update Log</h2>
                 <div class="update">
-                    <h3>Version 1.0</h3>
-                    <p>Initial release with core features, including compatibility with DOS-based games, custom configurations, and an easy-to-use interface.</p>
+                    <h3>Version 29.87.71</h3>
+                    <p>New quicker authentication system added for an improved and faster login experience. Performance improvements and bug fixes were also included in this version to make the user experience smoother and more reliable.</p>
                 </div>
             </div>
         </div>
