@@ -145,6 +145,31 @@
             transform: translateY(-3px);
             box-shadow: 0px 6px 20px rgba(255, 215, 0, 0.5);
         }
+        /* FAQ Section */
+        .faq h3 {
+            font-size: 1.5em;
+            color: #ffd700;
+            margin-bottom: 1em;
+        }
+        .question {
+            margin: 1em 0;
+            font-weight: bold;
+            color: #ffd700;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        .answer {
+            display: none;
+            margin: 0.5em 0 1.5em;
+            font-size: 1em;
+            color: #b3b3cc;
+            text-align: left;
+            padding-left: 1em;
+            border-left: 3px solid #ffd700;
+        }
+        .question:hover {
+            color: #ffac33;
+        }
         /* Footer */
         footer {
             margin-top: 3em;
@@ -203,7 +228,7 @@
             <div class="tab" onclick="openTab('download')">Download</div>
             <div class="tab" onclick="openTab('faq')">FAQ</div>
             <div class="tab" onclick="openTab('testimonials')">Testimonials</div>
-            <div class="tab" onclick="openTab('support')">Support/Suggestions</div>
+            <div class="tab" onclick="openTab('contact')">Contact Me</div>
             <div class="tab" onclick="openTab('update-log')">Update Log</div>
         </div>
 
@@ -237,7 +262,22 @@
 
             <div id="faq" class="tab-content">
                 <h2>Frequently Asked Questions</h2>
-                <p><strong>Which platforms are compatible with DJV2?</strong><br> DJV2 is currently compatible with Windows. Linux and Mac support are under consideration for future releases.</p>
+                <div class="faq">
+                    <div class="question" onclick="toggleAnswer(this)">Which platforms are compatible with DJV2?</div>
+                    <div class="answer">DJV2 is currently compatible with Windows. Linux and Mac support are under consideration for future releases.</div>
+
+                    <div class="question" onclick="toggleAnswer(this)">How do I update DJV2?</div>
+                    <div class="answer">Run the built-in updater provided with DJV2's installation to apply the latest updates.</div>
+
+                    <div class="question" onclick="toggleAnswer(this)">What games does DJV2 support?</div>
+                    <div class="answer">DJV2 is optimized for DOS-based games via DOSBox. It does not support modern games.</div>
+
+                    <div class="question" onclick="toggleAnswer(this)">Is DJV2 open-source?</div>
+                    <div class="answer">Currently, DJV2 is not open-source, but we welcome community feedback and suggestions for future improvements.</div>
+
+                    <div class="question" onclick="toggleAnswer(this)">Is there a forum or community for DJV2?</div>
+                    <div class="answer">Not currently, but community forums may be considered in the future to allow users to share tips and troubleshoot together.</div>
+                </div>
             </div>
 
             <div id="testimonials" class="tab-content">
@@ -245,9 +285,9 @@
                 <p>There are currently no testimonials. If you would like to share your experience, email it to <a href="mailto:dx1ctrl@gmail.com">dx1ctrl@gmail.com</a>.</p>
             </div>
 
-            <div id="support" class="tab-content">
-                <h2>Support/Suggestions</h2>
-                <p>Have questions, feedback, or suggestions? Reach out at <a href="mailto:dx1ctrl@gmail.com">dx1ctrl@gmail.com</a>.</p>
+            <div id="contact" class="tab-content">
+                <h2>Contact Me</h2>
+                <p>If you have any questions or suggestions, please reach out at <a href="mailto:dx1ctrl@gmail.com">dx1ctrl@gmail.com</a>. I'd love to hear from you!</p>
             </div>
 
             <div id="update-log" class="tab-content">
@@ -275,6 +315,11 @@
             
             document.querySelector(`.tab[onclick="openTab('${tabName}')"]`).classList.add('active');
             document.getElementById(tabName).classList.add('active');
+        }
+
+        function toggleAnswer(questionElement) {
+            const answer = questionElement.nextElementSibling;
+            answer.style.display = answer.style.display === "block" ? "none" : "block";
         }
     </script>
 </body>
