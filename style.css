@@ -95,7 +95,7 @@ h2 {
 /* Feature Card Styles */
 .feature-card {
     padding: 20px;
-    background-color: #2C3E50; /* Darker background for better readability */
+    background-color: ##000000; /* Darker background for better readability */
     color: #ECF0F1; /* Light text color to contrast with dark background */
     margin-bottom: 15px;
     border-radius: 8px;
