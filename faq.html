@@ -27,33 +27,52 @@
 
         <div class="faq">
             <div class="question" onclick="toggleAnswer(this)">Which platforms are compatible with DJV2?</div>
-            <div class="answer">DJV2 is compatible with Windows. Support for Linux and Mac systems is under consideration for future releases.</div>
+            <div class="answer">DJV2 is currently compatible with Windows. Support for Linux and Mac is under consideration for future updates.</div>
 
-            <div class="question" onclick="toggleAnswer(this)">How do I update DJV2?</div>
-            <div class="answer">DJV2 has a built-in updater. Simply open the app, and it will notify you of any available updates, which you can install with a single click.</div>
+            <div class="question" onclick="toggleAnswer(this)">How does DJV2 handle updates?</div>
+            <div class="answer">DJV2 uses GitHub’s API to automatically check for the latest versions of both DJV2 and its updater. If a new version is available, users receive a prompt to update, ensuring they always have the latest features and fixes.</div>
 
-            <div class="question" onclick="toggleAnswer(this)">What types of games are supported?</div>
-            <div class="answer">DJV2 is optimized for DOS-based games, making it ideal for classic titles from the DOS era. Modern games are not supported, as DJV2 is specifically designed for retro gaming enthusiasts.</div>
+            <div class="question" onclick="toggleAnswer(this)">What happens if DOSBox is not installed on my system?</div>
+            <div class="answer">If DOSBox is missing, DJV2 will guide you through installing it. The software can download the installer or look for DOSBox in standard installation directories. Once installed, DJV2 auto-configures DOSBox for optimal performance.</div>
 
-            <div class="question" onclick="toggleAnswer(this)">Can I customize controls and graphics?</div>
-            <div class="answer">Yes, DJV2 offers a range of customization options for controls, graphics, and audio. This allows you to tailor the gameplay experience to suit your preferences and hardware setup.</div>
+            <div class="question" onclick="toggleAnswer(this)">Can I customize game controls in DJV2?</div>
+            <div class="answer">Yes, DJV2 includes a comprehensive key mapping feature, allowing you to assign and customize controls for DOS games to your liking. Simply access the key mapping dialog and make adjustments as needed.</div>
 
-            <div class="question" onclick="toggleAnswer(this)">Is DJV2 free to use?</div>
-            <div class="answer">Yes, DJV2 is free to download and use. There are no subscription fees or hidden costs, so you can enjoy retro gaming without any financial commitment.</div>
+            <div class="question" onclick="toggleAnswer(this)">Does DJV2 support visual themes?</div>
+            <div class="answer">Absolutely. DJV2 offers several themes, including Default, Dark, Light, and a special Fleury Tribute theme. Each theme customizes the interface colors and elements for a more personalized experience.</div>
 
-            <div class="question" onclick="toggleAnswer(this)">Does DJV2 support multiplayer functionality?</div>
-            <div class="answer">Currently, DJV2 does not support multiplayer functionality. Our focus is on enhancing single-player experiences for classic DOS games, though multiplayer may be considered in future updates.</div>
+            <div class="question" onclick="toggleAnswer(this)">What is the "Fleury Tribute" theme?</div>
+            <div class="answer">The Fleury Tribute theme celebrates hockey legend Marc-André Fleury. It features a custom color scheme, achievements, and fun facts about his career, providing a unique visual experience for fans.</div>
 
-            <div class="question" onclick="toggleAnswer(this)">How can I organize my game library?</div>
-            <div class="answer">DJV2 includes a library management feature that allows you to organize, add, remove, and categorize your games. This makes it easy to keep track of your collection and find your favorites.</div>
+            <div class="question" onclick="toggleAnswer(this)">Is it possible to save and load game states in DJV2?</div>
+            <div class="answer">Yes, DJV2 allows you to save and load game states, so you can pause and resume your gameplay at any point. This feature is ideal for longer games that require frequent saving.</div>
 
-            <div class="question" onclick="toggleAnswer(this)">Is DJV2 difficult to set up for beginners?</div>
-            <div class="answer">Not at all! DJV2 was designed with simplicity in mind. The interface is intuitive, and the setup process is easy to follow, making it accessible for users of all experience levels.</div>
+            <div class="question" onclick="toggleAnswer(this)">How secure is DJV2's login system?</div>
+            <div class="answer">DJV2 prioritizes security with encrypted credential storage and secure HTTPS connections for all login and sign-up interactions. User credentials are safely stored with strong encryption, ensuring your data remains private.</div>
 
-            <div class="question" onclick="toggleAnswer(this)">Can I map my own keys for controls?</div>
-            <div class="answer">Absolutely! DJV2 includes custom key mapping, so you can set controls that are comfortable for you, ensuring an enjoyable gaming experience.</div>
+            <div class="question" onclick="toggleAnswer(this)">Does DJV2 include any in-app help or troubleshooting?</div>
+            <div class="answer">Yes, DJV2 has an in-app help dialog where users can find solutions to common issues and error explanations. Troubleshooting resources cover topics like missing files, update errors, and game compatibility.</div>
+
+            <div class="question" onclick="toggleAnswer(this)">Can I use keyboard shortcuts with DJV2?</div>
+            <div class="answer">Yes, DJV2 includes several shortcuts to enhance navigation, such as Ctrl+P to play a game, Ctrl+S to stop a game, Ctrl+O to open the game folder, and Ctrl+, to open settings.</div>
+
+            <div class="question" onclick="toggleAnswer(this)">How does DJV2 handle game organization?</div>
+            <div class="answer">Games can be easily added by dragging and dropping files into DJV2. The application scans the directories, organizes games into a list, and allows for quick selection and launching of titles.</div>
+
+            <div class="question" onclick="toggleAnswer(this)">What happens if I encounter an error while using DJV2?</div>
+            <div class="answer">DJV2 has robust logging and error handling. Detailed error messages are logged, and common issues are explained in the help section, allowing users to troubleshoot or reach out for support if needed.</div>
+
+            <div class="question" onclick="toggleAnswer(this)">How do I change DOSBox settings in DJV2?</div>
+            <div class="answer">DJV2 auto-generates optimal DOSBox configurations, but users can adjust settings like CPU cycles, memory, and display in the settings menu for a tailored gaming experience.</div>
+
+            <div class="question" onclick="toggleAnswer(this)">How can I report feedback or suggest new features for DJV2?</div>
+            <div class="answer">We welcome your feedback! You can send any suggestions or bug reports to our contact email at <a href="mailto:dx1ctrl@gmail.com">dx1ctrl@gmail.com</a>. We appreciate input from the community to keep improving DJV2.</div>
         </div>
     </section>
+
+    <footer>
+        <p>Visit my GitHub: <a href="https://github.com/dx1-ctrl/DJV2" target="_blank">DJV2 GitHub Repository</a></p>
+    </footer>
 
     <script>
         function toggleAnswer(questionElement) {
