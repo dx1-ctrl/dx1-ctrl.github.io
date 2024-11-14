@@ -3,32 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DJV2 - Welcome</title>
+    <title>DJV2 - Gateway</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <nav>
-            <a href="home.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="purpose.html">Purpose</a>
-            <a href="features.html">Features</a>
-            <a href="faq.html">FAQ</a>
-            <a href="testimonials.html">Testimonials</a>
-            <a href="contact.html">Contact</a>
-            <a href="update-log.html">Update Log</a>
-            <a href="download.html">Download</a>
-        </nav>
-    </header>
-
-    <section>
-        <h2>Welcome to DJV2</h2>
-        <p>Your ultimate tool for seamless retro gaming. Relive the classics with ease using DJV2.</p>
+    <section class="gateway">
+        <h1>Welcome to DJV2</h1>
+        <p>Experience retro gaming made easy with DJV2.</p>
+        <a href="home.html" class="proceed-button">Proceed to DJV2</a>
     </section>
 
     <footer>
-        <p>Visit my GitHub: <a href="https://github.com/dx1-ctrl/DJV2" target="_blank">DJV2 GitHub Repository</a></p>
+        <p>Visit our GitHub: <a href="https://github.com/dx1-ctrl/DJV2" target="_blank">DJV2 GitHub Repository</a></p>
     </footer>
+
+    <style>
+        /* Gateway Styles */
+        .gateway {
+            text-align: center;
+            margin-top: 20vh;
+        }
+
+        .gateway h1 {
+            font-size: 36px;
+            color: #4CAF50;
+            margin-bottom: 10px;
+        }
+
+        .gateway p {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .proceed-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 30px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+            display: inline-block;
+        }
+
+        .proceed-button:hover {
+            background-color: #45a049;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #333;
+            color: #f4f4f4;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        footer a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #45a049;
+        }
+    </style>
 </body>
 </html>
