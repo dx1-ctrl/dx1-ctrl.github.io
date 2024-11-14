@@ -1,192 +1,139 @@
-/* Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
-}
+/* General Styles */
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #f7f9fc;
     color: #333;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
 }
 
-/* Header */
 header {
-    width: 100%;
-    background-color: #ffffff;
-    padding: 1em 0;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #333;
+    padding: 10px 0;
 }
+
 header nav {
     display: flex;
     justify-content: center;
-    gap: 2em;
-    flex-wrap: wrap;
-}
-header a {
-    color: #0077b6;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1em;
-    padding-bottom: 5px;
-    transition: color 0.3s ease;
-    border-bottom: 2px solid transparent;
-}
-header a:hover {
-    color: #ff6b6b;
-    border-bottom: 2px solid #ff6b6b;
 }
 
-/* Section Styling */
+header nav a {
+    color: #f4f4f4;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+header nav a:hover {
+    color: #4CAF50;
+}
+
 section {
-    padding: 4em 2em;
-    max-width: 900px;
-    margin: 2em auto;
-    background: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+    background-color: #fff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin-top: 20px;
 }
-section h2 {
-    font-size: 2.5em;
-    color: #333;
+
+h2 {
+    font-size: 24px;
+    color: #4CAF50;
+    margin-bottom: 15px;
     text-align: center;
-    margin-bottom: 1em;
-}
-section p {
-    font-size: 1.1em;
-    color: #555;
-    text-align: center;
-    margin-bottom: 1em;
 }
 
 /* Button Styles */
-.download-button, .contact-button {
-    display: inline-block;
-    padding: 1em 2.5em;
-    background: #0077b6;
+.download-button, .faq .question, .feature-card {
+    background-color: #4CAF50;
     color: white;
-    border-radius: 50px;
-    font-weight: bold;
-    text-decoration: none;
-    font-size: 1.2em;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    padding: 15px 20px;
     text-align: center;
-}
-.download-button:hover, .contact-button:hover {
-    background: #005f8c;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    display: block;
+    margin: 10px 0;
 }
 
-/* FAQ and Cards */
+.download-button:hover, .faq .question:hover, .feature-card:hover {
+    background-color: #45a049;
+}
+
+/* FAQ Styles */
 .faq .question {
+    font-size: 18px;
     cursor: pointer;
-    font-weight: bold;
-    color: #333;
-    margin: 1em 0;
-    padding: 1em;
-    background: #f0f4f8;
-    border-radius: 10px;
-    transition: background 0.3s ease;
+    margin: 15px 0;
+    padding: 12px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    text-align: left;
 }
-.faq .question:hover {
-    background: #e0e7ef;
-}
+
 .faq .answer {
     display: none;
-    padding: 1em;
-    color: #555;
-    background: #f9fbfd;
-    border-left: 4px solid #0077b6;
-    margin-top: -1em;
-    border-radius: 0 0 10px 10px;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    border-radius: 5px;
 }
 
-/* Cards */
-.feature-card, .testimonial-card, .update-card {
-    background: #f7f9fc;
-    padding: 1.5em;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-    margin: 1em 0;
-}
-.feature-card:hover, .testimonial-card:hover, .update-card:hover {
-    transform: translateY(-5px);
+.faq .question:hover {
+    background-color: #45a049;
 }
 
-/* Footer */
+/* Feature Card Styles */
+.feature-card {
+    padding: 15px;
+    border-left: 4px solid #4CAF50;
+    background-color: #f9f9f9;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+/* Footer Styles */
 footer {
+    background-color: #333;
+    color: #f4f4f4;
     text-align: center;
-    padding: 2em;
-    background-color: #0077b6;
-    color: #ffffff;
+    padding: 10px 0;
+    margin-top: 20px;
 }
+
 footer a {
-    color: #ff6b6b;
-    font-weight: bold;
+    color: #4CAF50;
     text-decoration: none;
     transition: color 0.3s ease;
 }
+
 footer a:hover {
-    color: #ffffff;
+    color: #45a049;
 }
 
-/* Media Queries for Mobile Support */
+/* Update Log Entry Styles */
+.update-entry {
+    margin-bottom: 20px;
+    padding: 15px;
+    border-left: 4px solid #4CAF50;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+}
+
+/* Responsive Styles */
 @media (max-width: 768px) {
     header nav {
         flex-direction: column;
-        align-items: center;
     }
-    
-    header a {
-        font-size: 1.1em;
-        padding: 10px 0;
-    }
-
-    section {
-        padding: 2em 1em;
-        margin: 1em;
-    }
-    
-    section h2 {
-        font-size: 2em;
-    }
-
-    section p {
-        font-size: 1em;
-    }
-
-    .download-button, .contact-button {
-        padding: 0.8em 2em;
-        font-size: 1.1em;
-    }
-
-    .faq .question {
-        font-size: 1em;
-        padding: 0.8em;
-    }
-
-    .feature-card, .testimonial-card, .update-card {
-        padding: 1em;
-    }
-}
-
-@media (max-width: 480px) {
-    header nav {
-        flex-direction: column;
-    }
-
-    section h2 {
-        font-size: 1.8em;
-    }
-
-    .download-button, .contact-button {
-        width: 100%;
-        font-size: 1em;
+    header nav a {
+        margin: 10px 0;
     }
 }
